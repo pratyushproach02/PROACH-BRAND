@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import StatsBadge from './components/StatsBadge';
 import ProductCatalog from './components/ProductCatalog';
 import ProductModal from './components/ProductModal';
 import RFQModal from './components/RFQModal';
-import DefenseCredentials from './components/DefenseCredentials';
 import SolutionsSection from './components/SolutionsSection';
 import ProjectsShowcase from './components/ProjectsShowcase';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 export default function App() {
+  const [view, setView] = useState('home'); // 'home' | 'products'
+
   const [rfqItems, setRfqItems] = useState(() => {
     try {
       const saved = localStorage.getItem('proach_rfq_items');
@@ -44,31 +44,45 @@ export default function App() {
     setRfqItems([]);
   };
 
+  const handleNavigate = (targetView) => {
+    setView(targetView);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Top Nav */}
+      {/* Top Navbar */}
       <Navbar 
         rfqCount={rfqItems.length} 
-        onOpenRFQ={() => setIsRFQOpen(true)} 
+        onOpenRFQ={() => setIsRFQOpen(true)}
+        currentView={view}
+        onNavigate={handleNavigate}
       />
 
       {/* Main Content Sections */}
       <main style={{ flex: 1 }}>
-        <Hero onOpenRFQ={() => setIsRFQOpen(true)} />
-        <StatsBadge />
-        <ProductCatalog 
-          onSelectProduct={(prod) => setSelectedProduct(prod)}
-          onAddToRFQ={handleAddToRFQ}
-          rfqItems={rfqItems}
-        />
-        <DefenseCredentials />
-        <SolutionsSection />
-        <ProjectsShowcase />
-        <ContactSection onOpenRFQ={() => setIsRFQOpen(true)} />
+        {view === 'home' ? (
+          <>
+            <Hero 
+              onOpenRFQ={() => setIsRFQOpen(true)} 
+              onNavigate={handleNavigate}
+            />
+            <SolutionsSection />
+            <ProjectsShowcase />
+            <ContactSection onOpenRFQ={() => setIsRFQOpen(true)} />
+          </>
+        ) : (
+          <ProductCatalog 
+            onSelectProduct={(prod) => setSelectedProduct(prod)}
+            onAddToRFQ={handleAddToRFQ}
+            rfqItems={rfqItems}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
 
       {/* Product Detail Modal */}
       <ProductModal 

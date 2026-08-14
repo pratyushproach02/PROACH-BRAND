@@ -1,7 +1,7 @@
 import React from 'react';
-import { Shield, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -10,7 +10,7 @@ export default function Footer() {
     <footer style={{
       background: '#040b15',
       color: '#94a3b8',
-      padding: '80px 0 30px',
+      padding: '70px 0 30px',
       borderTop: '1px solid rgba(255, 255, 255, 0.08)'
     }}>
       <div className="container">
@@ -20,49 +20,35 @@ export default function Footer() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: '40px',
-          paddingBottom: '60px',
+          paddingBottom: '50px',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}>
           
-          {/* Column 1: Company Profile */}
-          <div style={{ gridColumn: 'span 1' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+          {/* Column 1: Company Profile with Clean Framed Logo */}
+          <div>
+            <div 
+              onClick={() => onNavigate && onNavigate('home')}
+              style={{
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                background: '#ffffff',
+                padding: '6px 14px',
+                borderRadius: '12px',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.25)',
+                marginBottom: '20px'
+              }}
+            >
               <img
                 src="/images/logo.png"
-                alt="Proach Associates Logo"
-                style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
-                onError={(e) => { e.target.style.display = 'none'; }}
+                alt="Proach Associates Builders & Engineers"
+                style={{ height: '58px', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
-              <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 800, color: '#ffffff' }}>
-                  PROACH
-                </div>
-                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--gold-primary)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  Builders & Engineers
-                </div>
-              </div>
             </div>
 
             <p style={{ fontSize: '0.88rem', lineHeight: 1.65, color: '#cbd5e1', marginBottom: '20px' }}>
-              Proach Associates — Over 40 years of pioneering electrical power distribution, 
-              defense-grade infrastructure, high-voltage substations, and equipment supply across 
-              Jammu, Udhampur, Srinagar, and Northern Command.
+              Specialized electrical engineering, turnkey sub-station erection, and high-voltage equipment distribution across Jammu, Udhampur, Srinagar, and Northern Command.
             </p>
-
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '6px 12px',
-              borderRadius: 'var(--radius-full)',
-              background: 'rgba(229, 169, 16, 0.1)',
-              border: '1px solid rgba(229, 169, 16, 0.25)',
-              color: 'var(--gold-primary)',
-              fontSize: '0.78rem',
-              fontWeight: 700
-            }}>
-              <Shield size={14} /> Class MES Approved Contractor
-            </div>
           </div>
 
           {/* Column 2: Equipment Catalog */}
@@ -71,13 +57,12 @@ export default function Footer() {
               Equipment Catalog
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
-              <a href="#products" style={{ transition: 'color 0.2s', ':hover': { color: '#ffffff' } }}>Power & Distribution Transformers</a>
-              <a href="#products" style={{ transition: 'color 0.2s' }}>Industrial Silent DG Sets (15kVA - 2000kVA)</a>
-              <a href="#products" style={{ transition: 'color 0.2s' }}>HT 11kV/33kV Vacuum Circuit Breakers</a>
-              <a href="#products" style={{ transition: 'color 0.2s' }}>LT Power Control & APFC Panels</a>
-              <a href="#products" style={{ transition: 'color 0.2s' }}>Octagonal High-Mast Lighting (16m - 30m)</a>
-              <a href="#products" style={{ transition: 'color 0.2s' }}>Armored HT XLPE & LT Power Cables</a>
-              <a href="#products" style={{ transition: 'color 0.2s' }}>Chemical Earthing & Surge Arresters</a>
+              <button onClick={() => onNavigate && onNavigate('products')} style={{ textAlign: 'left', background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0 }}>Power & Distribution Transformers</button>
+              <button onClick={() => onNavigate && onNavigate('products')} style={{ textAlign: 'left', background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0 }}>Industrial Silent DG Sets (15kVA - 2000kVA)</button>
+              <button onClick={() => onNavigate && onNavigate('products')} style={{ textAlign: 'left', background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0 }}>HT 11kV/33kV Vacuum Circuit Breakers</button>
+              <button onClick={() => onNavigate && onNavigate('products')} style={{ textAlign: 'left', background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0 }}>LT Power Control & APFC Panels</button>
+              <button onClick={() => onNavigate && onNavigate('products')} style={{ textAlign: 'left', background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0 }}>Octagonal High-Mast Lighting (16m - 30m)</button>
+              <button onClick={() => onNavigate && onNavigate('products')} style={{ textAlign: 'left', background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0 }}>Armored HT XLPE & LT Power Cables</button>
             </div>
           </div>
 
@@ -87,12 +72,12 @@ export default function Footer() {
               Turnkey Solutions
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
-              <a href="#services" style={{ transition: 'color 0.2s' }}>Substation Erection (11kV / 33kV / 66kV)</a>
-              <a href="#services" style={{ transition: 'color 0.2s' }}>Military Cantonment Electrification</a>
-              <a href="#services" style={{ transition: 'color 0.2s' }}>High-Altitude Resilient Power Systems</a>
-              <a href="#services" style={{ transition: 'color 0.2s' }}>Underground HT Trench Cabling</a>
-              <a href="#services" style={{ transition: 'color 0.2s' }}>Transformer Oil Filtration & Testing</a>
-              <a href="#services" style={{ transition: 'color 0.2s' }}>Annual Maintenance Contracts (AMC)</a>
+              <a href="#services" style={{ color: '#94a3b8' }}>Substation Erection (11kV / 33kV / 66kV)</a>
+              <a href="#services" style={{ color: '#94a3b8' }}>Military Cantonment Electrification</a>
+              <a href="#services" style={{ color: '#94a3b8' }}>High-Altitude Resilient Power Systems</a>
+              <a href="#services" style={{ color: '#94a3b8' }}>Underground HT Trench Cabling</a>
+              <a href="#services" style={{ color: '#94a3b8' }}>Transformer Oil Filtration & Testing</a>
+              <a href="#services" style={{ color: '#94a3b8' }}>Annual Maintenance Contracts (AMC)</a>
             </div>
           </div>
 
@@ -125,7 +110,7 @@ export default function Footer() {
                   Locations Served:
                 </div>
                 <div style={{ color: '#cbd5e1' }}>
-                  Jammu • Udhampur • Srinagar • Kashmir Valley • Northern Command
+                  Jammu • Udhampur • Srinagar • Kashmir Valley
                 </div>
               </div>
             </div>
@@ -144,12 +129,12 @@ export default function Footer() {
           fontSize: '0.82rem'
         }}>
           <div>
-            © 1984 – {new Date().getFullYear()} <strong>Proach Builders and Engineers</strong> (Proach Associates). All rights reserved.
+            © {new Date().getFullYear()} <strong>Proach Associates Builders & Engineers</strong>. All rights reserved.
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             <span style={{ color: 'var(--gold-light)' }}>
-              Electrical • Infrastructure • Defense EPC
+              Electrical • Infrastructure • Turnkey Engineering
             </span>
             <button
               onClick={scrollToTop}

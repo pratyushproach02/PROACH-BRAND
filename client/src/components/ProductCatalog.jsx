@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { categories, products } from '../data/productsData';
-import { Search, SlidersHorizontal, Plus, Check, Eye, Zap, Shield, FileText } from 'lucide-react';
+import { Search, Eye, Plus, Check, ArrowLeft, Zap } from 'lucide-react';
 
-export default function ProductCatalog({ onSelectProduct, onAddToRFQ, rfqItems }) {
+export default function ProductCatalog({ onSelectProduct, onAddToRFQ, rfqItems, onNavigateHome }) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -16,9 +16,35 @@ export default function ProductCatalog({ onSelectProduct, onAddToRFQ, rfqItems }
   });
 
   return (
-    <section id="products" style={{ padding: '100px 0', background: 'var(--surface-light)' }}>
+    <section id="products" style={{ padding: '70px 0 110px', background: 'var(--surface-light)', minHeight: '85vh' }}>
       <div className="container">
         
+        {/* Navigation Breadcrumb / Back to Home */}
+        {onNavigateHome && (
+          <div style={{ marginBottom: '24px' }}>
+            <button
+              onClick={onNavigateHome}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: '#ffffff',
+                border: '1.5px solid var(--border-light)',
+                borderRadius: 'var(--radius-md)',
+                padding: '8px 16px',
+                fontSize: '0.88rem',
+                fontWeight: 700,
+                color: 'var(--primary-navy)',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: 'var(--shadow-sm)'
+              }}
+            >
+              <ArrowLeft size={16} /> Back to Overview
+            </button>
+          </div>
+        )}
+
         {/* Section Header */}
         <div className="section-header">
           <div className="eyebrow">Defense & Industrial Equipment Catalog</div>

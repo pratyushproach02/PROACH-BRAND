@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, Clock, ShieldCheck, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, CheckCircle2, AlertCircle } from 'lucide-react';
 import { api } from '../services/api';
+import { indianStatesAndCities } from '../data/indianLocations';
 
 export default function ContactSection({ onOpenRFQ }) {
+  const statesList = Object.keys(indianStatesAndCities);
+  
+  const [selectedState, setSelectedState] = useState('Jammu and Kashmir');
+  const [selectedCity, setSelectedCity] = useState('Jammu');
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -15,6 +21,13 @@ export default function ContactSection({ onOpenRFQ }) {
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
+  const handleStateChange = (e) => {
+    const newState = e.target.value;
+    setSelectedState(newState);
+    const cities = indianStatesAndCities[newState] || [];
+    setSelectedCity(cities[0] || '');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -24,29 +37,33 @@ export default function ContactSection({ onOpenRFQ }) {
     try {
       await api.submitRFQ({
         ...formData,
-        organization: 'Direct Contact Form',
-        location: 'Jammu & Kashmir / Northern Sector',
+        state: selectedState,
+        city: selectedCity,
+        location: `${selectedCity}, ${selectedState}`,
+        organization: 'Direct Enquiry Desk',
         items: []
       });
-      setSuccessMsg('Your message has been received! Our engineering desk will connect with you promptly.');
+      setSuccessMsg('Your enquiry has been received! Our engineering desk will connect with you promptly.');
       setFormData({ name: '', phone: '', email: '', subject: 'New Tender / Electrical Infrastructure Project', message: '' });
     } catch (err) {
-      setErrorMsg('Failed to send message. Please call our direct hotline at +91-97976-81768.');
+      setErrorMsg('Failed to send enquiry. Please call our direct hotline at +91-97976-81768.');
     } finally {
       setLoading(false);
     }
   };
 
+  const currentCities = indianStatesAndCities[selectedState] || [];
+
   return (
-    <section id="contact" style={{ padding: '100px 0', background: 'var(--surface-light)' }}>
+    <section id="contact" style={{ padding: '90px 0', background: 'var(--surface-light)' }}>
       <div className="container">
         
         <div className="section-header">
           <div className="eyebrow">Connect with Engineering Desk</div>
           <h2 className="section-title">Initiate a Project or Tender Discussion</h2>
           <p className="section-desc">
-            Directly connect with our senior technical partners for equipment procurement, 
-            turnkey sub-station tenders, or rapid site support across Jammu & Kashmir.
+            Directly connect with our senior technical team for equipment procurement, 
+            turnkey sub-station tenders, or rapid site support.
           </p>
         </div>
 
@@ -78,11 +95,8 @@ export default function ContactSection({ onOpenRFQ }) {
                 color: '#ffffff',
                 marginBottom: '8px'
               }}>
-                Proach Builders & Engineers
+                Proach Associates Builders & Engineers
               </h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                Proach Associates — Over 40 years of trusted electrical and infrastructure delivery.
-              </p>
             </div>
 
             {/* Direct Contact Points */}
@@ -209,7 +223,7 @@ export default function ContactSection({ onOpenRFQ }) {
 
           </div>
 
-          {/* Right: Quick Consultation Form */}
+          {/* Right: Enquiry Form */}
           <div style={{
             background: '#ffffff',
             borderRadius: 'var(--radius-lg)',
@@ -219,12 +233,12 @@ export default function ContactSection({ onOpenRFQ }) {
           }}>
             <h3 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '1.45rem',
+              fontSize: '1.6rem',
               fontWeight: 700,
               color: 'var(--primary-navy)',
               marginBottom: '8px'
             }}>
-              Send Quick Project Enquiry
+              Enquiry
             </h3>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '24px' }}>
               Fill out this form and our engineering team will get back to you with technical specifications.
@@ -312,6 +326,53 @@ export default function ContactSection({ onOpenRFQ }) {
                         fontSize: '0.9rem'
                       }}
                     />
+                  </div>
+                </div>
+
+                {/* State & City Dropdowns */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
+                      State / UT *
+                    </label>
+                    <select
+                      value={selectedState}
+                      onChange={handleStateChange}
+                      style={{
+                        width: '100%',
+                        padding: '12px 14px',
+                        borderRadius: 'var(--radius-sm)',
+                        border: '1.5px solid var(--border-light)',
+                        fontSize: '0.9rem',
+                        background: '#ffffff'
+                      }}
+                    >
+                      {statesList.map((st) => (
+                        <option key={st} value={st}>{st}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
+                      City / District *
+                    </label>
+                    <select
+                      value={selectedCity}
+                      onChange={(e) => setSelectedCity(e.target.value)}
+                      style={{
+                        width: '100%',
+                        padding: '12px 14px',
+                        borderRadius: 'var(--radius-sm)',
+                        border: '1.5px solid var(--border-light)',
+                        fontSize: '0.9rem',
+                        background: '#ffffff'
+                      }}
+                    >
+                      {currentCities.map((city) => (
+                        <option key={city} value={city}>{city}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
 

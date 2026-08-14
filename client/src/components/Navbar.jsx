@@ -7,7 +7,7 @@ export default function Navbar({ currentView, onNavigate }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -39,9 +39,9 @@ export default function Navbar({ currentView, onNavigate }) {
       position: 'sticky',
       top: 0,
       zIndex: 50,
-      background: scrolled ? 'rgba(7, 17, 30, 0.97)' : 'rgba(7, 17, 30, 0.92)',
-      backdropFilter: 'blur(16px)',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+      background: '#ffffff',
+      borderBottom: '1px solid #e2e8f0',
+      boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.08)' : '0 2px 8px rgba(0, 0, 0, 0.04)',
       transition: 'all 0.3s ease'
     }}>
       <div className="container" style={{
@@ -50,7 +50,7 @@ export default function Navbar({ currentView, onNavigate }) {
         justifyContent: 'space-between',
         height: '96px'
       }}>
-        {/* Brand Logo - Extra Big, Clear & 100% Blended with Header Background */}
+        {/* Brand Logo - Original High-Resolution Logo Blending Seamlessly on White Header */}
         <div 
           onClick={() => handleNavClick('home')}
           style={{
@@ -58,14 +58,14 @@ export default function Navbar({ currentView, onNavigate }) {
             display: 'flex',
             alignItems: 'center',
             background: 'transparent',
-            padding: '4px 0',
+            padding: '2px 0',
             transition: 'transform 0.2s ease'
           }}
           onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
           <img 
-            src="/images/logo_dark_theme.png" 
+            src="/images/logo.png" 
             alt="Proach Associates Builders & Engineers"
             style={{
               height: '76px',
@@ -74,33 +74,30 @@ export default function Navbar({ currentView, onNavigate }) {
               objectFit: 'contain',
               display: 'block'
             }}
-            onError={(e) => {
-              // Fallback to standard logo if needed
-              e.target.src = '/images/logo.png';
-            }}
           />
         </div>
 
-        {/* Desktop Nav Links */}
+        {/* Desktop Nav Links on White Header */}
         <div style={{
           display: 'none',
-          gap: '32px',
+          gap: '34px',
           alignItems: 'center',
           fontSize: '1rem',
-          fontWeight: 600,
-          color: '#e2e8f0'
+          fontWeight: 700,
+          color: '#1e293b'
         }} className="desktop-links">
           <button
             onClick={() => handleNavClick('home')}
             style={{
               background: 'none',
               border: 'none',
-              color: currentView === 'home' ? 'var(--gold-primary)' : '#e2e8f0',
-              fontWeight: currentView === 'home' ? 700 : 600,
+              color: currentView === 'home' ? '#b88307' : '#1e293b',
+              fontWeight: currentView === 'home' ? 800 : 650,
               fontSize: 'inherit',
               cursor: 'pointer',
               padding: '6px 0',
-              transition: 'color 0.2s'
+              borderBottom: currentView === 'home' ? '2.5px solid #b88307' : '2.5px solid transparent',
+              transition: 'all 0.2s'
             }}
           >
             Home
@@ -111,12 +108,13 @@ export default function Navbar({ currentView, onNavigate }) {
             style={{
               background: 'none',
               border: 'none',
-              color: currentView === 'products' ? 'var(--gold-primary)' : '#e2e8f0',
-              fontWeight: currentView === 'products' ? 700 : 600,
+              color: currentView === 'products' ? '#b88307' : '#1e293b',
+              fontWeight: currentView === 'products' ? 800 : 650,
               fontSize: 'inherit',
               cursor: 'pointer',
               padding: '6px 0',
-              transition: 'color 0.2s'
+              borderBottom: currentView === 'products' ? '2.5px solid #b88307' : '2.5px solid transparent',
+              transition: 'all 0.2s'
             }}
           >
             Products
@@ -127,11 +125,13 @@ export default function Navbar({ currentView, onNavigate }) {
             style={{
               background: 'none',
               border: 'none',
-              color: '#e2e8f0',
+              color: '#1e293b',
               fontSize: 'inherit',
+              fontWeight: 650,
               cursor: 'pointer',
               padding: '6px 0',
-              transition: 'color 0.2s'
+              borderBottom: '2.5px solid transparent',
+              transition: 'all 0.2s'
             }}
           >
             Turnkey EPC
@@ -142,11 +142,13 @@ export default function Navbar({ currentView, onNavigate }) {
             style={{
               background: 'none',
               border: 'none',
-              color: '#e2e8f0',
+              color: '#1e293b',
               fontSize: 'inherit',
+              fontWeight: 650,
               cursor: 'pointer',
               padding: '6px 0',
-              transition: 'color 0.2s'
+              borderBottom: '2.5px solid transparent',
+              transition: 'all 0.2s'
             }}
           >
             Projects
@@ -157,12 +159,13 @@ export default function Navbar({ currentView, onNavigate }) {
             style={{
               background: 'none',
               border: 'none',
-              color: currentView === 'contact' ? 'var(--gold-primary)' : '#e2e8f0',
-              fontWeight: currentView === 'contact' ? 700 : 600,
+              color: currentView === 'contact' ? '#b88307' : '#1e293b',
+              fontWeight: currentView === 'contact' ? 800 : 650,
               fontSize: 'inherit',
               cursor: 'pointer',
               padding: '6px 0',
-              transition: 'color 0.2s'
+              borderBottom: currentView === 'contact' ? '2.5px solid #b88307' : '2.5px solid transparent',
+              transition: 'all 0.2s'
             }}
           >
             Contact
@@ -177,16 +180,26 @@ export default function Navbar({ currentView, onNavigate }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              color: '#ffffff',
+              color: '#07111e',
               fontSize: '0.95rem',
-              fontWeight: 700,
-              padding: '8px 16px',
+              fontWeight: 800,
+              padding: '10px 18px',
               borderRadius: 'var(--radius-md)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)'
+              background: '#f8fafc',
+              border: '1.5px solid #e2e8f0',
+              boxShadow: '0 2px 5px rgba(0,0,0,0.04)',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#07111e';
+              e.currentTarget.style.background = '#ffffff';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = '#e2e8f0';
+              e.currentTarget.style.background = '#f8fafc';
             }}
           >
-            <Phone size={16} style={{ color: 'var(--gold-primary)' }} /> +91-97976-81768
+            <Phone size={16} style={{ color: '#b88307' }} /> +91-97976-81768
           </a>
 
           {/* Mobile Menu Toggle */}
@@ -194,11 +207,11 @@ export default function Navbar({ currentView, onNavigate }) {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
               display: 'inline-flex',
-              background: 'transparent',
-              border: '1px solid rgba(255,255,255,0.15)',
+              background: '#f8fafc',
+              border: '1.5px solid #e2e8f0',
               borderRadius: '8px',
               padding: '8px',
-              color: '#ffffff',
+              color: '#0f172a',
               cursor: 'pointer'
             }}
             className="mobile-toggle"
@@ -212,40 +225,41 @@ export default function Navbar({ currentView, onNavigate }) {
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
         <div style={{
-          background: 'var(--primary-navy)',
-          borderTop: '1px solid var(--border-navy)',
+          background: '#ffffff',
+          borderTop: '1px solid #e2e8f0',
           padding: '20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px'
+          gap: '16px',
+          boxShadow: '0 10px 25px rgba(0,0,0,0.08)'
         }}>
           <button
             onClick={() => handleNavClick('home')}
-            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#f8fafc', fontSize: '1.05rem', fontWeight: 600, padding: '8px 0', cursor: 'pointer' }}
+            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#0f172a', fontSize: '1.05rem', fontWeight: 700, padding: '8px 0', cursor: 'pointer' }}
           >
             Home
           </button>
           <button
             onClick={() => handleNavClick('products')}
-            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#f8fafc', fontSize: '1.05rem', fontWeight: 600, padding: '8px 0', cursor: 'pointer' }}
+            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#0f172a', fontSize: '1.05rem', fontWeight: 700, padding: '8px 0', cursor: 'pointer' }}
           >
             Products
           </button>
           <button
             onClick={() => handleNavClick('home', 'services')}
-            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#f8fafc', fontSize: '1.05rem', fontWeight: 600, padding: '8px 0', cursor: 'pointer' }}
+            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#0f172a', fontSize: '1.05rem', fontWeight: 700, padding: '8px 0', cursor: 'pointer' }}
           >
             Turnkey EPC
           </button>
           <button
             onClick={() => handleNavClick('home', 'projects')}
-            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#f8fafc', fontSize: '1.05rem', fontWeight: 600, padding: '8px 0', cursor: 'pointer' }}
+            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#0f172a', fontSize: '1.05rem', fontWeight: 700, padding: '8px 0', cursor: 'pointer' }}
           >
             Projects
           </button>
           <button
             onClick={() => handleNavClick('contact')}
-            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#f8fafc', fontSize: '1.05rem', fontWeight: 600, padding: '8px 0', cursor: 'pointer' }}
+            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#0f172a', fontSize: '1.05rem', fontWeight: 700, padding: '8px 0', cursor: 'pointer' }}
           >
             Contact
           </button>

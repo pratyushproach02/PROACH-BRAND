@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Trash2, Send, CheckCircle2, AlertCircle, FileSpreadsheet } from 'lucide-react';
+import { X, Trash2, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { api } from '../services/api';
 
 export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClearRFQ }) {
@@ -8,7 +8,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
     organization: '',
     email: '',
     phone: '',
-    location: 'Jammu / Kashmir Region',
+    location: '',
     tender_ref: '',
     delivery_timeline: 'Immediate / Within 30 Days',
     notes: ''
@@ -35,7 +35,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
       return;
     }
     if (!formData.name || !formData.phone || !formData.email) {
-      setErrorMsg('Please fill in your Contact Name, Phone, and Email.');
+      setErrorMsg('Please fill in your Name, Phone, and Email.');
       return;
     }
 
@@ -269,12 +269,12 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Contact Person / Officer *
+                      Name *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Er. Rajesh Sharma / Col. Verma"
+                      placeholder="e.g. Vikram Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       style={{
@@ -308,12 +308,12 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Official Email *
+                      Email *
                     </label>
                     <input
                       type="email"
                       required
-                      placeholder="officer@organization.gov.in"
+                      placeholder="name@organization.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       style={{
@@ -350,7 +350,9 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
                     <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
                       Project Site Location
                     </label>
-                    <select
+                    <input
+                      type="text"
+                      placeholder="Enter project site location (e.g. Leh, Tangste, Jammu...)"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                       style={{
@@ -361,14 +363,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
                         fontSize: '0.88rem',
                         background: '#ffffff'
                       }}
-                    >
-                      <option>Jammu & Surrounding Industrial Zone</option>
-                      <option>Udhampur / Northern Command Sector</option>
-                      <option>Srinagar / Kashmir Valley Base</option>
-                      <option>Chenab Valley / Doda / Kishtwar</option>
-                      <option>Ladakh / High Altitude Sector</option>
-                      <option>Other Regional Infrastructure</option>
-                    </select>
+                    />
                   </div>
 
                   <div>

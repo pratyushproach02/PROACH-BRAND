@@ -109,7 +109,7 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
           }}>
             Class MES approved contractors & industrial distributors. Supplying heavy-duty transformers, 
             DG sets, HT/LT switchgear, high-mast illumination, and turnkey electrical sub-stations across 
-            <strong style={{ color: '#ffffff' }}> Jammu, Udhampur, Srinagar, and the Kashmir Valley</strong>.
+            <strong style={{ color: '#ffffff' }}> Jammu & Kashmir, Leh, Durbuk, Tangste,</strong> and surrounding strategic sectors.
           </p>
 
           {/* CTA Group */}
@@ -127,9 +127,15 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
               <Zap size={18} style={{ color: 'var(--gold-primary)' }} />
               Request Institutional RFQ
             </button>
-            <a href="#projects" className="btn btn-outline-light">
-              View Regional Case Studies
-            </a>
+            <button 
+              onClick={() => {
+                onNavigate('contact');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }} 
+              className="btn btn-outline-light"
+            >
+              Get In Touch
+            </button>
           </div>
 
         </div>

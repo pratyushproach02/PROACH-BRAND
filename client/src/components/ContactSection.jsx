@@ -1,50 +1,65 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, Clock, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle2, AlertCircle, ArrowLeft } from 'lucide-react';
 import { api } from '../services/api';
-import { indianStatesAndCities } from '../data/indianLocations';
 
-export default function ContactSection({ onOpenRFQ }) {
-  const statesList = Object.keys(indianStatesAndCities);
-  
-  const [selectedState, setSelectedState] = useState('Jammu and Kashmir');
-  const [selectedCity, setSelectedCity] = useState('Jammu');
+const titlesList = [
+  'Mr.',
+  'Ms.',
+  'Mrs.',
+  'Er.',
+  'Dr.',
+  'Col.',
+  'Maj.',
+  'Brig.',
+  'Lt. Col.',
+  'Capt.',
+  'Shri'
+];
 
+export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
   const [formData, setFormData] = useState({
+    title: 'Mr.',
     name: '',
     phone: '',
     email: '',
-    subject: 'New Tender / Electrical Infrastructure Project',
-    message: ''
+    message: '',
+    agreed: false
   });
 
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleStateChange = (e) => {
-    const newState = e.target.value;
-    setSelectedState(newState);
-    const cities = indianStatesAndCities[newState] || [];
-    setSelectedCity(cities[0] || '');
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.agreed) {
+      setErrorMsg('Please check the agreement box before submitting.');
+      return;
+    }
+
     setLoading(true);
     setErrorMsg('');
     setSuccessMsg('');
 
     try {
       await api.submitRFQ({
-        ...formData,
-        state: selectedState,
-        city: selectedCity,
-        location: `${selectedCity}, ${selectedState}`,
+        name: `${formData.title} ${formData.name}`,
+        phone: formData.phone,
+        email: formData.email,
+        notes: formData.message,
+        location: 'Jammu & Kashmir / Northern Sector',
         organization: 'Direct Enquiry Desk',
         items: []
       });
       setSuccessMsg('Your enquiry has been received! Our engineering desk will connect with you promptly.');
-      setFormData({ name: '', phone: '', email: '', subject: 'New Tender / Electrical Infrastructure Project', message: '' });
+      setFormData({
+        title: 'Mr.',
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+        agreed: false
+      });
     } catch (err) {
       setErrorMsg('Failed to send enquiry. Please call our direct hotline at +91-97976-81768.');
     } finally {
@@ -52,20 +67,35 @@ export default function ContactSection({ onOpenRFQ }) {
     }
   };
 
-  const currentCities = indianStatesAndCities[selectedState] || [];
-
   return (
-    <section id="contact" style={{ padding: '90px 0', background: 'var(--surface-light)' }}>
+    <section id="contact" style={{ padding: '60px 0 110px', background: 'var(--surface-light)', minHeight: '85vh' }}>
       <div className="container">
         
-        <div className="section-header">
-          <div className="eyebrow">Connect with Engineering Desk</div>
-          <h2 className="section-title">Initiate a Project or Tender Discussion</h2>
-          <p className="section-desc">
-            Directly connect with our senior technical team for equipment procurement, 
-            turnkey sub-station tenders, or rapid site support.
-          </p>
-        </div>
+        {/* Navigation Breadcrumb / Back to Home */}
+        {onNavigateHome && (
+          <div style={{ marginBottom: '24px' }}>
+            <button
+              onClick={onNavigateHome}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: '#ffffff',
+                border: '1.5px solid var(--border-light)',
+                borderRadius: 'var(--radius-md)',
+                padding: '8px 16px',
+                fontSize: '0.88rem',
+                fontWeight: 700,
+                color: 'var(--primary-navy)',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: 'var(--shadow-sm)'
+              }}
+            >
+              <ArrowLeft size={16} /> Back to Overview
+            </button>
+          </div>
+        )}
 
         <div style={{
           display: 'grid',
@@ -82,15 +112,15 @@ export default function ContactSection({ onOpenRFQ }) {
             padding: '40px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '30px'
+            gap: '26px'
           }}>
             <div>
               <span className="badge badge-gold" style={{ marginBottom: '12px' }}>
-                Direct Hotline Desk
+                DIRECT HOTLINE DESK
               </span>
               <h3 style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '1.6rem',
+                fontSize: '1.55rem',
                 fontWeight: 700,
                 color: '#ffffff',
                 marginBottom: '8px'
@@ -116,15 +146,12 @@ export default function ContactSection({ onOpenRFQ }) {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Direct Calling / WhatsApp
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    DIRECT CALLING / WHATSAPP
                   </div>
-                  <a href="tel:+919797681768" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff' }}>
+                  <a href="tel:+919797681768" style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--gold-primary)' }}>
                     +91-97976-81768
                   </a>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--gold-light)' }}>
-                    Immediate response for tender queries & breakdowns
-                  </div>
                 </div>
               </div>
 
@@ -142,8 +169,8 @@ export default function ContactSection({ onOpenRFQ }) {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Official Tender Inquiries Email
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    OFFICIAL TENDER INQUIRIES EMAIL
                   </div>
                   <a href="mailto:dkumar2711@rediffmail.com" style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>
                     dkumar2711@rediffmail.com
@@ -165,14 +192,11 @@ export default function ContactSection({ onOpenRFQ }) {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Operational Headquarters
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    OPERATIONAL HEADQUARTERS
                   </div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ffffff' }}>
+                  <div style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff' }}>
                     Jammu & Kashmir, India
-                  </div>
-                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>
-                    Serving Jammu, Udhampur, Srinagar, and Northern Command Sectors
                   </div>
                 </div>
               </div>
@@ -191,14 +215,11 @@ export default function ContactSection({ onOpenRFQ }) {
                   <Clock size={20} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Tender Desk Hours
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    TENDER DESK HOURS
                   </div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ffffff' }}>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#ffffff' }}>
                     Monday – Saturday: 09:00 AM – 07:30 PM
-                  </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-light-muted)' }}>
-                    Emergency substation breakdown support available 24/7
                   </div>
                 </div>
               </div>
@@ -206,20 +227,23 @@ export default function ContactSection({ onOpenRFQ }) {
             </div>
 
             {/* RFQ Trigger Banner */}
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: 'var(--radius-md)',
-              padding: '20px',
-              textAlign: 'center'
-            }}>
-              <div style={{ fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
-                Need a comprehensive itemized bill of quantities (BOQ) quote?
+            {onOpenRFQ && (
+              <div style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: 'var(--radius-md)',
+                padding: '20px',
+                textAlign: 'center',
+                marginTop: '10px'
+              }}>
+                <div style={{ fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
+                  Need a comprehensive itemized bill of quantities (BOQ) quote?
+                </div>
+                <button onClick={onOpenRFQ} className="btn btn-primary btn-sm" style={{ width: '100%' }}>
+                  Launch Interactive RFQ Desk →
+                </button>
               </div>
-              <button onClick={onOpenRFQ} className="btn btn-primary btn-sm" style={{ width: '100%' }}>
-                Launch Interactive RFQ Desk →
-              </button>
-            </div>
+            )}
 
           </div>
 
@@ -233,29 +257,29 @@ export default function ContactSection({ onOpenRFQ }) {
           }}>
             <h3 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '1.6rem',
+              fontSize: '1.75rem',
               fontWeight: 700,
               color: 'var(--primary-navy)',
-              marginBottom: '8px'
+              marginBottom: '6px'
             }}>
               Enquiry
             </h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '24px' }}>
+            <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '24px' }}>
               Fill out this form and our engineering team will get back to you with technical specifications.
             </p>
 
             {successMsg ? (
               <div style={{
-                padding: '24px',
+                padding: '28px',
                 background: 'rgba(16, 185, 129, 0.1)',
                 border: '1px solid rgba(16, 185, 129, 0.3)',
                 borderRadius: 'var(--radius-md)',
                 color: '#065f46',
                 textAlign: 'center'
               }}>
-                <CheckCircle2 size={32} style={{ color: '#10b981', margin: '0 auto 12px' }} />
-                <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '6px' }}>Enquiry Dispatched</h4>
-                <p style={{ fontSize: '0.9rem' }}>{successMsg}</p>
+                <CheckCircle2 size={36} style={{ color: '#10b981', margin: '0 auto 12px' }} />
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '6px' }}>Enquiry Dispatched</h4>
+                <p style={{ fontSize: '0.92rem' }}>{successMsg}</p>
                 <button
                   onClick={() => setSuccessMsg('')}
                   className="btn btn-outline-dark btn-sm"
@@ -265,31 +289,53 @@ export default function ContactSection({ onOpenRFQ }) {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                 
+                {/* Title and Name side-by-side */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                    Your Name / Officer Rank *
+                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
+                    Title & Name *
                   </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Vikram Sharma"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '12px 14px',
-                      borderRadius: 'var(--radius-sm)',
-                      border: '1.5px solid var(--border-light)',
-                      fontSize: '0.9rem'
-                    }}
-                  />
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <select
+                      value={formData.title}
+                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      style={{
+                        width: '110px',
+                        padding: '12px 10px',
+                        borderRadius: 'var(--radius-sm)',
+                        border: '1.5px solid var(--border-light)',
+                        fontSize: '0.92rem',
+                        background: '#ffffff',
+                        fontWeight: 600
+                      }}
+                    >
+                      {titlesList.map((t) => (
+                        <option key={t} value={t}>{t}</option>
+                      ))}
+                    </select>
+
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Vikram Sharma"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      style={{
+                        flex: 1,
+                        padding: '12px 14px',
+                        borderRadius: 'var(--radius-sm)',
+                        border: '1.5px solid var(--border-light)',
+                        fontSize: '0.92rem'
+                      }}
+                    />
+                  </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                {/* Phone & Email */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
                       Phone / Mobile *
                     </label>
                     <input
@@ -303,13 +349,13 @@ export default function ContactSection({ onOpenRFQ }) {
                         padding: '12px 14px',
                         borderRadius: 'var(--radius-sm)',
                         border: '1.5px solid var(--border-light)',
-                        fontSize: '0.9rem'
+                        fontSize: '0.92rem'
                       }}
                     />
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
                       Email Address *
                     </label>
                     <input
@@ -323,87 +369,16 @@ export default function ContactSection({ onOpenRFQ }) {
                         padding: '12px 14px',
                         borderRadius: 'var(--radius-sm)',
                         border: '1.5px solid var(--border-light)',
-                        fontSize: '0.9rem'
+                        fontSize: '0.92rem'
                       }}
                     />
                   </div>
                 </div>
 
-                {/* State & City Dropdowns */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      State / UT *
-                    </label>
-                    <select
-                      value={selectedState}
-                      onChange={handleStateChange}
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        borderRadius: 'var(--radius-sm)',
-                        border: '1.5px solid var(--border-light)',
-                        fontSize: '0.9rem',
-                        background: '#ffffff'
-                      }}
-                    >
-                      {statesList.map((st) => (
-                        <option key={st} value={st}>{st}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      City / District *
-                    </label>
-                    <select
-                      value={selectedCity}
-                      onChange={(e) => setSelectedCity(e.target.value)}
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        borderRadius: 'var(--radius-sm)',
-                        border: '1.5px solid var(--border-light)',
-                        fontSize: '0.9rem',
-                        background: '#ffffff'
-                      }}
-                    >
-                      {currentCities.map((city) => (
-                        <option key={city} value={city}>{city}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
+                {/* Project Requirements / Message */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                    Project Category / Subject
-                  </label>
-                  <select
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '12px 14px',
-                      borderRadius: 'var(--radius-sm)',
-                      border: '1.5px solid var(--border-light)',
-                      fontSize: '0.9rem',
-                      background: '#ffffff'
-                    }}
-                  >
-                    <option>New Substation / Transformer Procurement</option>
-                    <option>Diesel Generator Sets & Synchronizing Panels</option>
-                    <option>High-Mast Lighting & Perimeter Illumination</option>
-                    <option>HT/LT Cables & Switchgear Panels</option>
-                    <option>MES Defense Tender Participation</option>
-                    <option>Annual Maintenance / Testing Service</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                    Project Requirements / Message
+                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
+                    Project Requirements / Message *
                   </label>
                   <textarea
                     rows="4"
@@ -416,10 +391,38 @@ export default function ContactSection({ onOpenRFQ }) {
                       padding: '12px 14px',
                       borderRadius: 'var(--radius-sm)',
                       border: '1.5px solid var(--border-light)',
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
                       resize: 'vertical'
                     }}
                   />
+                </div>
+
+                {/* Agreement Checkbox */}
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginTop: '2px' }}>
+                  <input
+                    type="checkbox"
+                    id="agreeCheck"
+                    required
+                    checked={formData.agreed}
+                    onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
+                    style={{
+                      width: '18px',
+                      height: '18px',
+                      cursor: 'pointer',
+                      marginTop: '3px'
+                    }}
+                  />
+                  <label
+                    htmlFor="agreeCheck"
+                    style={{
+                      fontSize: '0.88rem',
+                      color: 'var(--text-dark)',
+                      cursor: 'pointer',
+                      lineHeight: 1.4
+                    }}
+                  >
+                    I agree to receive information regarding my enquiry.
+                  </label>
                 </div>
 
                 {errorMsg && (
@@ -442,13 +445,9 @@ export default function ContactSection({ onOpenRFQ }) {
                   type="submit"
                   disabled={loading}
                   className="btn btn-navy"
-                  style={{ width: '100%', marginTop: '8px' }}
+                  style={{ width: '100%', marginTop: '6px', fontSize: '1rem', padding: '14px' }}
                 >
-                  {loading ? 'Sending...' : (
-                    <>
-                      <Send size={16} /> Dispatch Enquiry to Engineering Team
-                    </>
-                  )}
+                  {loading ? 'Submitting...' : 'Submit'}
                 </button>
 
               </form>

@@ -10,7 +10,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [view, setView] = useState('home'); // 'home' | 'products'
+  const [view, setView] = useState('home'); // 'home' | 'products' | 'contact'
 
   const [rfqItems, setRfqItems] = useState(() => {
     try {
@@ -53,15 +53,13 @@ export default function App() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Top Navbar */}
       <Navbar 
-        rfqCount={rfqItems.length} 
-        onOpenRFQ={() => setIsRFQOpen(true)}
         currentView={view}
         onNavigate={handleNavigate}
       />
 
       {/* Main Content Sections */}
       <main style={{ flex: 1 }}>
-        {view === 'home' ? (
+        {view === 'home' && (
           <>
             <Hero 
               onOpenRFQ={() => setIsRFQOpen(true)} 
@@ -69,13 +67,21 @@ export default function App() {
             />
             <SolutionsSection />
             <ProjectsShowcase />
-            <ContactSection onOpenRFQ={() => setIsRFQOpen(true)} />
           </>
-        ) : (
+        )}
+
+        {view === 'products' && (
           <ProductCatalog 
             onSelectProduct={(prod) => setSelectedProduct(prod)}
             onAddToRFQ={handleAddToRFQ}
             rfqItems={rfqItems}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {view === 'contact' && (
+          <ContactSection 
+            onOpenRFQ={() => setIsRFQOpen(true)}
             onNavigateHome={() => handleNavigate('home')}
           />
         )}

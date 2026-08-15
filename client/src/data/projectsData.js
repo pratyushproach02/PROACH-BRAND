@@ -1,5 +1,5 @@
 export const stats = [
-  { value: '40+', label: 'Years of Engineering Legacy', subtext: 'Established 1980s' },
+  { value: '40+', label: 'Years of Engineering Legacy', subtext: 'Established 1989' },
   { value: '250+', label: 'Sub-stations & Heavy Installations', subtext: 'Turnkey Execution' },
   { value: 'Class MES', label: 'Military Engineer Services', subtext: 'Defense Certified Contractor' },
   { value: '100%', label: 'Compliance & Safety Record', subtext: 'IS / IEC / CPWD / MES Norms' }
@@ -48,7 +48,7 @@ export const regionalPresence = [
   { city: 'Jammu Central', role: 'Headquarters & Regional Logistics Depot', coverage: 'Greater Jammu, Kathua, Samba Industrial Zone' },
   { city: 'Udhampur', role: 'Northern Command Defense Project Division', coverage: 'Command HQs, Air Force Stations, Rail Corridors' },
   { city: 'Kashmir Valley / Srinagar', role: 'High-Altitude Project & Rapid Response Base', coverage: 'Srinagar, Baramulla, Anantnag, Kupwara' },
-  { city: 'Strategic Hill Sectors', role: 'Turnkey Substation & Remote Line Erection', coverage: 'Chenab Valley, Rajouri, Poonch, Ladakh Transit' }
+  { city: 'Strategic Hill Sectors', role: 'Turnkey Substation & Remote Line Erection', coverage: 'Leh, Durbuk, Tangste, Chenab Valley' }
 ];
 
 export const turnkeyServices = [
@@ -56,24 +56,24 @@ export const turnkeyServices = [
     id: 'srv-01',
     icon: 'Zap',
     title: 'Substation Erection & HT/LT Distribution',
-    description: 'Complete EPC execution of 11kV, 33kV, and 66kV outdoor and indoor electrical substations, transformer yards, and high-tension overhead lines.'
+    description: 'Installation of 11kV, 33kV, and 66kV outdoor yards, distribution transformers, CT/PT metering units, lightning arresters, and overhead line stringing.'
   },
   {
     id: 'srv-02',
     icon: 'ShieldCheck',
-    title: 'Class MES Defense Contracting',
-    description: 'End-to-end electrical procurement, cabling, runway lighting, bunker power backups, and compliance verification for military establishments.'
+    title: 'MES & Defense Electrical Contracting',
+    description: 'Authorized execution for Military Engineer Services—runway perimeter illumination, armored cable trenching, DG synchronization, and cantonment power supply.'
   },
   {
     id: 'srv-03',
     icon: 'Cpu',
-    title: 'Custom Control Desks & APFC Panels',
-    description: 'Design and assembly of custom Motor Control Centers (MCC), Power Control Centers (PCC), Auto Mains Failure (AMF), and PLC automation panels.'
+    title: 'LT Panels, PCC/MCC & APFC Boards',
+    description: 'Fabrication, busbar assembly, and on-site wiring of Power Control Centers, Motor Control Centers, AMF generator panels, and automatic power factor correction banks.'
   },
   {
     id: 'srv-04',
     icon: 'Activity',
-    title: 'Testing, Commissioning & Annual Maintenance',
-    description: 'High-voltage insulation testing, transformer oil filtration, earth resistance certification, relay calibration, and round-the-clock emergency support.'
+    title: 'Oil Filtration, Relay Testing & Maintenance',
+    description: 'High-vacuum transformer oil dehydration, BDV testing, numerical relay calibration, Megger insulation checks, and emergency grid repairs.'
   }
 ];

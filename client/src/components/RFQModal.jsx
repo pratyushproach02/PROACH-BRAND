@@ -10,7 +10,6 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
     phone: '',
     location: '',
     tender_ref: '',
-    delivery_timeline: 'Immediate / Within 30 Days',
     notes: ''
   });
 
@@ -35,7 +34,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
       return;
     }
     if (!formData.name || !formData.phone || !formData.email) {
-      setErrorMsg('Please fill in your Name, Phone, and Email.');
+      setErrorMsg('Please fill in your Name, Mobile, and Email.');
       return;
     }
 
@@ -260,7 +259,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
                 )}
               </div>
 
-              {/* Tender / Client Information Fields */}
+              {/* Project & Contact Details */}
               <div>
                 <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--primary-navy)', marginBottom: '14px' }}>
                   Project & Contact Details
@@ -274,7 +273,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Vikram Sharma"
+                      placeholder="Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       style={{
@@ -289,11 +288,11 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Organization / MES Garrison / Department
+                      Organisation
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. GE Udhampur / PDD J&K / Private EPC"
+                      placeholder="Organisation"
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                       style={{
@@ -313,7 +312,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
                     <input
                       type="email"
                       required
-                      placeholder="name@organization.com"
+                      placeholder="Email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       style={{
@@ -328,12 +327,12 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Phone / Mobile Number *
+                      Mobile *
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="+91-98765-43210"
+                      placeholder="Mobile"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       style={{
@@ -348,11 +347,11 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Project Site Location
+                      Location
                     </label>
                     <input
                       type="text"
-                      placeholder="Enter project site location (e.g. Leh, Tangste, Jammu...)"
+                      placeholder="Location"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                       style={{
@@ -368,11 +367,11 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Tender Reference / CA Number (Optional)
+                      Tender Reference
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. CA NO: CE(A)/UDH/08/2026"
+                      placeholder="Tender Reference"
                       value={formData.tender_ref}
                       onChange={(e) => setFormData({ ...formData, tender_ref: e.target.value })}
                       style={{
@@ -388,11 +387,11 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
 
                 <div style={{ marginTop: '14px' }}>
                   <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, marginBottom: '6px' }}>
-                    Custom Technical Requirements & Special Instructions
+                    Requirements
                   </label>
                   <textarea
                     rows="3"
-                    placeholder="Provide details such as primary/secondary voltage requirements, copper/aluminum conductor preference, specific brand approvals (e.g. Cummins, Schneider, Havells, ABB), delivery schedule..."
+                    placeholder="Requirements"
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     style={{

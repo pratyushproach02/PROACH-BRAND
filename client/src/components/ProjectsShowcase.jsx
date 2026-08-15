@@ -1,6 +1,6 @@
 import React from 'react';
 import { caseStudies } from '../data/projectsData';
-import { MapPin, CheckCircle, ArrowUpRight } from 'lucide-react';
+import { MapPin, CheckCircle } from 'lucide-react';
 
 export default function ProjectsShowcase() {
   return (
@@ -9,22 +9,11 @@ export default function ProjectsShowcase() {
         
         <div className="section-header">
           <div className="eyebrow" style={{ color: 'var(--gold-primary)' }}>Selected Milestones & Case Studies</div>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-            flexWrap: 'wrap',
-            gap: '20px'
-          }}>
-            <div>
-              <h2 className="section-title light">Proven Execution Where Failure is Not an Option</h2>
-              <p className="section-desc light">
-                A glimpse into our milestone power installations, high-voltage substations, and critical facility projects.
-              </p>
-            </div>
-            <a href="#contact" className="btn btn-primary btn-sm">
-              Inquire About Similar Scope →
-            </a>
+          <div>
+            <h2 className="section-title light">Proven Execution Where Failure is Not an Option</h2>
+            <p className="section-desc light">
+              A glimpse into our milestone power installations, high-voltage substations, and critical facility projects.
+            </p>
           </div>
         </div>
 

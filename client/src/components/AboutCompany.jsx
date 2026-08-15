@@ -1,7 +1,7 @@
 import React from 'react';
-import { ShieldCheck, Zap, Building, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ShieldCheck, CheckCircle2 } from 'lucide-react';
 
-export default function AboutCompany({ onNavigate }) {
+export default function AboutCompany() {
   return (
     <section id="about-company" style={{ padding: '95px 0', background: '#ffffff' }}>
       <div className="container">
@@ -13,7 +13,7 @@ export default function AboutCompany({ onNavigate }) {
           alignItems: 'center'
         }}>
           
-          {/* Left Column: Corporate Narrative (VCL Style) */}
+          {/* Left Column: Corporate Narrative */}
           <div>
             <div className="eyebrow" style={{ color: 'var(--gold-dark)' }}>
               Corporate Profile & Heritage
@@ -37,7 +37,7 @@ export default function AboutCompany({ onNavigate }) {
               color: '#334155',
               marginBottom: '20px'
             }}>
-              We are a premier integrated Engineering, Procurement, and Construction (EPC) firm and heavy equipment distributor with extensive experience in executing high-stakes electrical and power infrastructure projects. Our proven portfolio includes <strong>Air Force stations, high-voltage substations, military cantonments, radar and defense communication grids, railway distribution networks, institutional hospitals, and heavy industrial corridors</strong>, demonstrating our comprehensive engineering capabilities across diverse operational environments.
+              We are a premier integrated Engineering, Procurement, and Construction (EPC) firm and heavy equipment distributor with extensive experience in executing high-stakes electrical and power infrastructure projects. Our proven portfolio includes <strong>Air Force stations, high-voltage substations, military cantonments, and radar & defense communication grids</strong>, demonstrating our comprehensive engineering capabilities across diverse operational environments.
             </p>
 
             <p style={{
@@ -46,7 +46,7 @@ export default function AboutCompany({ onNavigate }) {
               color: '#334155',
               marginBottom: '28px'
             }}>
-              Founded in <strong>1989</strong>, our company has grown into a cornerstone engineering partner in Northern India and strategic frontier sectors. Under visionary technical leadership, we have evolved from executing foundational power distribution networks to delivering turnkey 33kV/11kV substations, high-altitude resilient micro-grids in <strong>Leh, Durbuk, and Tangste</strong>, and large-scale industrial electrification. Over the decades, we have forged enduring partnerships with prestigious agencies including the <strong>Military Engineer Services (MES), Northern Command, CPWD, and State Power Corporations</strong>, consistently delivering exceptional quality that exceeds both client expectations and rigorous industry standards.
+              Founded in <strong>1989</strong>, our company has grown into a cornerstone engineering partner in Northern India and strategic frontier sectors. Under visionary technical leadership, we have evolved from executing foundational power distribution networks to delivering turnkey 33kV/11kV substations, high-altitude resilient micro-grids in <strong>Leh, Durbuk, and Tangste</strong>, and large-scale industrial electrification. Over the decades, we have forged enduring partnerships with prestigious agencies including the <strong>Military Engineer Services (MES), Northern Command, CPWD, and State Power Corporations</strong>, consistently delivering exceptional quality that meets both client expectations and rigorous industry standards.
             </p>
 
             <div style={{
@@ -56,8 +56,7 @@ export default function AboutCompany({ onNavigate }) {
               padding: '20px',
               background: 'var(--surface-light)',
               borderRadius: 'var(--radius-md)',
-              border: '1px solid var(--border-light)',
-              marginBottom: '32px'
+              border: '1px solid var(--border-light)'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <CheckCircle2 size={18} style={{ color: '#b88307', flexShrink: 0 }} />
@@ -85,12 +84,6 @@ export default function AboutCompany({ onNavigate }) {
               </div>
             </div>
 
-            <button
-              onClick={() => onNavigate && onNavigate('contact')}
-              className="btn btn-primary"
-            >
-              Consult with Our Technical Team <ArrowRight size={18} />
-            </button>
           </div>
 
           {/* Right Column: Visual Engineering Showcase Card */}

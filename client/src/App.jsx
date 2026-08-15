@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AboutCompany from './components/AboutCompany';
 import ProductCatalog from './components/ProductCatalog';
 import ProductModal from './components/ProductModal';
 import RFQModal from './components/RFQModal';
@@ -57,33 +58,38 @@ export default function App() {
         onNavigate={handleNavigate}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections with Smooth Transition */}
       <main style={{ flex: 1 }}>
         {view === 'home' && (
-          <>
+          <div className="page-view-transition">
             <Hero 
               onOpenRFQ={() => setIsRFQOpen(true)} 
               onNavigate={handleNavigate}
             />
+            <AboutCompany onNavigate={handleNavigate} />
             <SolutionsSection />
             <ProjectsShowcase />
-          </>
+          </div>
         )}
 
         {view === 'products' && (
-          <ProductCatalog 
-            onSelectProduct={(prod) => setSelectedProduct(prod)}
-            onAddToRFQ={handleAddToRFQ}
-            rfqItems={rfqItems}
-            onNavigateHome={() => handleNavigate('home')}
-          />
+          <div className="page-view-transition">
+            <ProductCatalog 
+              onSelectProduct={(prod) => setSelectedProduct(prod)}
+              onAddToRFQ={handleAddToRFQ}
+              rfqItems={rfqItems}
+              onNavigateHome={() => handleNavigate('home')}
+            />
+          </div>
         )}
 
         {view === 'contact' && (
-          <ContactSection 
-            onOpenRFQ={() => setIsRFQOpen(true)}
-            onNavigateHome={() => handleNavigate('home')}
-          />
+          <div className="page-view-transition">
+            <ContactSection 
+              onOpenRFQ={() => setIsRFQOpen(true)}
+              onNavigateHome={() => handleNavigate('home')}
+            />
+          </div>
         )}
       </main>
 

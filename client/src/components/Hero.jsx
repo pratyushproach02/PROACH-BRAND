@@ -1,17 +1,17 @@
 import React from 'react';
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Award } from 'lucide-react';
 
 export default function Hero({ onOpenRFQ, onNavigate }) {
   return (
     <header style={{
       position: 'relative',
-      minHeight: '80vh',
+      minHeight: '84vh',
       background: 'radial-gradient(ellipse at 50% 30%, #152b45 0%, #0c1c2e 45%, #06111e 90%)',
       color: '#ffffff',
       display: 'flex',
       alignItems: 'center',
       overflow: 'hidden',
-      padding: '70px 0 90px'
+      padding: '75px 0 95px'
     }}>
       {/* Animated Electrical Power Grid Layer */}
       <div style={{
@@ -84,14 +84,14 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 3 }}>
-        <div style={{ maxWidth: '880px' }}>
+        <div style={{ maxWidth: '920px' }}>
 
           {/* Main Headline */}
           <h1 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 5.5vw, 4.2rem)',
+            fontSize: 'clamp(2.6rem, 5.8vw, 4.4rem)',
             fontWeight: 800,
-            lineHeight: 1.1,
+            lineHeight: 1.08,
             letterSpacing: '-0.035em',
             marginBottom: '24px',
             color: '#ffffff'
@@ -99,17 +99,18 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
             Powering Strategic Defense & Industrial Grids with Uncompromising Reliability.
           </h1>
 
-          {/* Subheading */}
+          {/* Corporate Professional Subheading (VCL Group Reference Style) */}
           <p style={{
             fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
             color: '#cbd5e1',
-            lineHeight: 1.6,
-            marginBottom: '36px',
-            maxWidth: '740px'
+            lineHeight: 1.65,
+            marginBottom: '38px',
+            maxWidth: '820px'
           }}>
-            Class MES approved contractors & industrial distributors. Supplying heavy-duty transformers, 
-            DG sets, HT/LT switchgear, high-mast illumination, and turnkey electrical sub-stations across 
-            <strong style={{ color: '#ffffff' }}> Jammu & Kashmir, Leh, Durbuk, Tangste,</strong> and surrounding strategic sectors.
+            Founded in 1989, <strong style={{ color: '#ffffff' }}>Proach Associates Builders & Engineers</strong> is a leading 
+            integrated electrical engineering, equipment supply, and turnkey EPC contractor. With over three decades of proven 
+            execution, our portfolio encompasses <strong style={{ color: '#ffffff' }}>Air Force stations, high-voltage substations, military cantonments, radar installations, and strategic transmission grids</strong> across 
+            <strong style={{ color: 'var(--gold-primary)' }}> Jammu & Kashmir, Leh, Durbuk, Tangste,</strong> and vital frontier sectors.
           </p>
 
           {/* CTA Group */}

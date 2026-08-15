@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, CheckCircle2, AlertCircle, ArrowLeft } from 'lucide-react';
+import { Phone, Mail, MapPin, CheckCircle2, AlertCircle, ArrowLeft } from 'lucide-react';
 import { api } from '../services/api';
 
 const titlesList = [
@@ -112,7 +112,7 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
             padding: '40px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '26px'
+            gap: '28px'
           }}>
             <div>
               <span className="badge badge-gold" style={{ marginBottom: '12px' }}>
@@ -130,7 +130,7 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
             </div>
 
             {/* Direct Contact Points */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
               
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
                 <div style={{
@@ -170,7 +170,7 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    OFFICIAL TENDER INQUIRIES EMAIL
+                    OFFICIAL EMAIL
                   </div>
                   <a href="mailto:dkumar2711@rediffmail.com" style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>
                     dkumar2711@rediffmail.com
@@ -201,29 +201,6 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '12px',
-                  background: 'rgba(229, 169, 16, 0.15)',
-                  color: 'var(--gold-primary)',
-                  display: 'grid',
-                  placeItems: 'center',
-                  flexShrink: 0
-                }}>
-                  <Clock size={20} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    TENDER DESK HOURS
-                  </div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#ffffff' }}>
-                    Monday – Saturday: 09:00 AM – 07:30 PM
-                  </div>
-                </div>
-              </div>
-
             </div>
 
             {/* RFQ Trigger Banner */}
@@ -234,7 +211,7 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
                 borderRadius: 'var(--radius-md)',
                 padding: '20px',
                 textAlign: 'center',
-                marginTop: '10px'
+                marginTop: '12px'
               }}>
                 <div style={{ fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
                   Need a comprehensive itemized bill of quantities (BOQ) quote?
@@ -318,7 +295,7 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Vikram Sharma"
+                      placeholder="Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       style={{
@@ -332,16 +309,16 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
                   </div>
                 </div>
 
-                {/* Phone & Email */}
+                {/* Mobile & Email */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Phone / Mobile *
+                      Mobile *
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="+91-98765-43210"
+                      placeholder="Mobile"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       style={{
@@ -356,12 +333,12 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
-                      Email Address *
+                      Email *
                     </label>
                     <input
                       type="email"
                       required
-                      placeholder="name@organization.com"
+                      placeholder="Email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       style={{
@@ -375,15 +352,15 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
                   </div>
                 </div>
 
-                {/* Project Requirements / Message */}
+                {/* Message */}
                 <div>
                   <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
-                    Project Requirements / Message *
+                    Message *
                   </label>
                   <textarea
                     rows="4"
                     required
-                    placeholder="Describe capacity, site location, required timeline, tender specifics..."
+                    placeholder="Message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     style={{

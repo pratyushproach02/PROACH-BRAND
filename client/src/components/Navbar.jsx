@@ -48,9 +48,9 @@ export default function Navbar({ currentView, onNavigate }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '96px'
+        height: '102px'
       }}>
-        {/* Brand Logo - Original High-Resolution Logo Blending Seamlessly on White Header */}
+        {/* Brand Logo - Enlarged Crisp Text Blending Flawlessly on White Header */}
         <div 
           onClick={() => handleNavClick('home')}
           style={{
@@ -58,31 +58,34 @@ export default function Navbar({ currentView, onNavigate }) {
             display: 'flex',
             alignItems: 'center',
             background: 'transparent',
-            padding: '2px 0',
+            padding: '4px 0',
             transition: 'transform 0.2s ease'
           }}
           onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
           <img 
-            src="/images/logo.png" 
+            src="/images/logo_enlarged.png" 
             alt="Proach Associates Builders & Engineers"
             style={{
-              height: '76px',
+              height: '84px',
               width: 'auto',
-              maxHeight: '76px',
+              maxHeight: '84px',
               objectFit: 'contain',
               display: 'block'
+            }}
+            onError={(e) => {
+              e.target.src = '/images/logo.png';
             }}
           />
         </div>
 
-        {/* Desktop Nav Links on White Header */}
+        {/* Desktop Nav Links */}
         <div style={{
           display: 'none',
-          gap: '34px',
+          gap: '36px',
           alignItems: 'center',
-          fontSize: '1rem',
+          fontSize: '1.02rem',
           fontWeight: 700,
           color: '#1e293b'
         }} className="desktop-links">
@@ -118,6 +121,23 @@ export default function Navbar({ currentView, onNavigate }) {
             }}
           >
             Products
+          </button>
+
+          <button
+            onClick={() => handleNavClick('home', 'about-company')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#1e293b',
+              fontSize: 'inherit',
+              fontWeight: 650,
+              cursor: 'pointer',
+              padding: '6px 0',
+              borderBottom: '2.5px solid transparent',
+              transition: 'all 0.2s'
+            }}
+          >
+            About
           </button>
 
           <button
@@ -244,6 +264,12 @@ export default function Navbar({ currentView, onNavigate }) {
             style={{ textAlign: 'left', background: 'none', border: 'none', color: '#0f172a', fontSize: '1.05rem', fontWeight: 700, padding: '8px 0', cursor: 'pointer' }}
           >
             Products
+          </button>
+          <button
+            onClick={() => handleNavClick('home', 'about-company')}
+            style={{ textAlign: 'left', background: 'none', border: 'none', color: '#0f172a', fontSize: '1.05rem', fontWeight: 700, padding: '8px 0', cursor: 'pointer' }}
+          >
+            About
           </button>
           <button
             onClick={() => handleNavClick('home', 'services')}

@@ -73,7 +73,7 @@ export default function AboutCompany() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <CheckCircle2 size={18} style={{ color: '#b88307', flexShrink: 0 }} />
                 <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary-navy)' }}>
-                  Airforce & Substation EPC
+                  Comprehensive Turnkey EPC
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

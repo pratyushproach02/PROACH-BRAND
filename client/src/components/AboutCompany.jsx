@@ -94,12 +94,11 @@ export default function AboutCompany() {
             boxShadow: '0 20px 45px rgba(7, 17, 30, 0.12)',
             border: '1.5px solid var(--border-light)',
             background: 'linear-gradient(145deg, #0d1e33, #07111e)',
-            padding: '40px',
+            padding: '44px 38px',
             color: '#ffffff',
-            minHeight: '440px',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between'
+            justifyContent: 'center'
           }}>
             <div style={{
               position: 'absolute',
@@ -124,7 +123,7 @@ export default function AboutCompany() {
                 color: 'var(--gold-primary)',
                 fontSize: '0.82rem',
                 fontWeight: 700,
-                marginBottom: '24px'
+                marginBottom: '22px'
               }}>
                 <ShieldCheck size={16} /> Decades of Proven Field Performance
               </div>
@@ -133,58 +132,24 @@ export default function AboutCompany() {
                 fontFamily: 'var(--font-heading)',
                 fontSize: '1.75rem',
                 fontWeight: 700,
-                lineHeight: 1.25,
-                marginBottom: '16px',
+                lineHeight: 1.28,
+                marginBottom: '18px',
                 color: '#ffffff'
               }}>
-                High-Voltage Infrastructure Across Strategic Terrains
+                Comprehensive High-Voltage Infrastructure Across All Terrains & Climates
               </h3>
 
               <p style={{
-                fontSize: '0.95rem',
+                fontSize: '0.98rem',
                 color: '#cbd5e1',
-                lineHeight: 1.65,
-                marginBottom: '24px'
+                lineHeight: 1.7
               }}>
-                Operating across the challenging altitudes and extreme weather of Jammu & Kashmir and Ladakh, 
-                our engineering teams deploy specialized cold-weather power gear, vibration-proof transformers, 
-                and automated multi-megawatt synchronizing generators that sustain critical operations 24/7/365.
+                Executing electrical power projects across all operating environments—from urban centers, 
+                industrial corridors, and commercial hubs to high-altitude and strategic frontier sectors 
+                including Jammu & Kashmir and Ladakh. Our engineering teams deploy robust, all-weather power 
+                equipment, precision-engineered transformers, and automated synchronizing generator systems 
+                designed for seamless, continuous 24/7 performance in every operational condition.
               </p>
-            </div>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '14px',
-              paddingTop: '24px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.12)'
-            }}>
-              <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--gold-primary)', lineHeight: 1 }}>
-                  1989
-                </div>
-                <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '4px' }}>
-                  Established
-                </div>
-              </div>
-
-              <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--gold-primary)', lineHeight: 1 }}>
-                  35+
-                </div>
-                <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '4px' }}>
-                  Years of Excellence
-                </div>
-              </div>
-
-              <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--gold-primary)', lineHeight: 1 }}>
-                  100%
-                </div>
-                <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '4px' }}>
-                  Uptime Reliability
-                </div>
-              </div>
             </div>
 
           </div>

@@ -52,10 +52,12 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Top Navbar */}
+      {/* Top Navbar with live RFQ cart counter and modal trigger */}
       <Navbar 
         currentView={view}
         onNavigate={handleNavigate}
+        rfqCount={rfqItems.length}
+        onOpenRFQ={() => setIsRFQOpen(true)}
       />
 
       {/* Main Content Sections with Smooth Transition */}

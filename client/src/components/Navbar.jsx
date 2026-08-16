@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ShoppingBag } from 'lucide-react';
 
-export default function Navbar({ currentView, onNavigate }) {
+export default function Navbar({ currentView, onNavigate, rfqCount, onOpenRFQ }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -83,7 +83,7 @@ export default function Navbar({ currentView, onNavigate }) {
         {/* Desktop Nav Links */}
         <div style={{
           display: 'none',
-          gap: '36px',
+          gap: '34px',
           alignItems: 'center',
           fontSize: '1.02rem',
           fontWeight: 700,
@@ -192,24 +192,65 @@ export default function Navbar({ currentView, onNavigate }) {
           </button>
         </div>
 
-        {/* Right Action Hotline */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <a
-            href="tel:+919797681768"
+        {/* Right Action: RFQ Quote Counter & Hotline */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          
+          {/* Live RFQ Cart Indicator */}
+          <button
+            onClick={onOpenRFQ}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
+              padding: '9px 16px',
+              borderRadius: 'var(--radius-md)',
+              background: rfqCount > 0 ? 'var(--primary-navy)' : '#f8fafc',
+              color: rfqCount > 0 ? '#ffffff' : '#0f172a',
+              border: rfqCount > 0 ? '1.5px solid var(--primary-navy)' : '1.5px solid #e2e8f0',
+              fontSize: '0.92rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              boxShadow: rfqCount > 0 ? '0 4px 12px rgba(7, 17, 30, 0.15)' : 'none',
+              transition: 'all 0.25s ease',
+              position: 'relative'
+            }}
+            title="View RFQ Quote Package"
+          >
+            <ShoppingBag size={17} style={{ color: rfqCount > 0 ? 'var(--gold-primary)' : '#64748b' }} />
+            <span>RFQ Quote</span>
+            {rfqCount > 0 && (
+              <span style={{
+                background: '#e5a910',
+                color: '#07111e',
+                fontSize: '0.75rem',
+                fontWeight: 800,
+                padding: '2px 7px',
+                borderRadius: '9999px',
+                marginLeft: '2px'
+              }}>
+                {rfqCount}
+              </span>
+            )}
+          </button>
+
+          {/* Hotline Button */}
+          <a
+            href="tel:+919797681768"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              gap: '8px',
               color: '#07111e',
-              fontSize: '0.95rem',
+              fontSize: '0.92rem',
               fontWeight: 800,
-              padding: '10px 18px',
+              padding: '9px 16px',
               borderRadius: 'var(--radius-md)',
               background: '#f8fafc',
               border: '1.5px solid #e2e8f0',
               boxShadow: '0 2px 5px rgba(0,0,0,0.04)',
               transition: 'all 0.2s ease'
             }}
+            className="header-phone"
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = '#07111e';
               e.currentTarget.style.background = '#ffffff';
@@ -219,7 +260,7 @@ export default function Navbar({ currentView, onNavigate }) {
               e.currentTarget.style.background = '#f8fafc';
             }}
           >
-            <Phone size={16} style={{ color: '#b88307' }} /> +91-97976-81768
+            <Phone size={15} style={{ color: '#b88307' }} /> +91-97976-81768
           </a>
 
           {/* Mobile Menu Toggle */}
@@ -295,6 +336,7 @@ export default function Navbar({ currentView, onNavigate }) {
       <style>{`
         @media (min-width: 992px) {
           .desktop-links { display: flex !important; }
+          .header-phone { display: inline-flex !important; }
           .mobile-toggle { display: none !important; }
         }
       `}</style>

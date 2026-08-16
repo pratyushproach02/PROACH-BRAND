@@ -248,6 +248,62 @@ button, input, select, textarea {
   border: 1px solid var(--border-navy);
 }
 
+/* Hero Entrance Animations */
+.hero-animate-title {
+  opacity: 0;
+  animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+}
+
+.hero-animate-sub {
+  opacity: 0;
+  animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s forwards;
+}
+
+.hero-animate-cta {
+  opacity: 0;
+  animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.38s forwards;
+}
+
+.hero-pulse-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-pulse-cta::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  transform: rotate(25deg);
+  animation: shimmerSweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  35% { transform: translateX(100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
 /* Smooth Page Transitions */
 .page-view-transition {
   animation: pageFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;

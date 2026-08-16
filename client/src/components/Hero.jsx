@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Zap, Shield, Award } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 
 export default function Hero({ onOpenRFQ, onNavigate }) {
   return (
@@ -86,41 +86,50 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
       <div className="container" style={{ position: 'relative', zIndex: 3 }}>
         <div style={{ maxWidth: '920px' }}>
 
-          {/* Main Headline */}
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.6rem, 5.8vw, 4.4rem)',
-            fontWeight: 800,
-            lineHeight: 1.08,
-            letterSpacing: '-0.035em',
-            marginBottom: '24px',
-            color: '#ffffff'
-          }}>
+          {/* Main Headline with Staggered Entrance Animation */}
+          <h1 
+            className="hero-animate-title"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(2.6rem, 5.8vw, 4.4rem)',
+              fontWeight: 800,
+              lineHeight: 1.08,
+              letterSpacing: '-0.035em',
+              marginBottom: '24px',
+              color: '#ffffff'
+            }}
+          >
             Powering Strategic Defense & Industrial Grids with Uncompromising Reliability.
           </h1>
 
-          {/* Corporate Professional Subheading (VCL Group Reference Style) */}
-          <p style={{
-            fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
-            color: '#cbd5e1',
-            lineHeight: 1.65,
-            marginBottom: '38px',
-            maxWidth: '820px'
-          }}>
+          {/* Subheading with Staggered Entrance Animation */}
+          <p 
+            className="hero-animate-sub"
+            style={{
+              fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+              color: '#cbd5e1',
+              lineHeight: 1.65,
+              marginBottom: '38px',
+              maxWidth: '820px'
+            }}
+          >
             Founded in 1989, <strong style={{ color: '#ffffff' }}>Proach Associates Builders & Engineers</strong> is a leading 
             integrated electrical engineering, equipment supply, and turnkey EPC contractor. With over three decades of proven 
             execution, our portfolio encompasses <strong style={{ color: '#ffffff' }}>Air Force stations, high-voltage substations, military cantonments, radar installations, and strategic transmission grids</strong> across 
             <strong style={{ color: 'var(--gold-primary)' }}> Jammu & Kashmir, Leh, Durbuk, Tangste,</strong> and vital frontier sectors.
           </p>
 
-          {/* CTA Group */}
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          {/* CTA Buttons with Conversion Shimmer Effect */}
+          <div 
+            className="hero-animate-cta"
+            style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}
+          >
             <button 
               onClick={() => {
                 onNavigate('products');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }} 
-              className="btn btn-primary"
+              className="btn btn-primary hero-pulse-cta"
             >
               Browse Equipment Catalog <ArrowRight size={18} />
             </button>

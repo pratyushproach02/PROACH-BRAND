@@ -86,7 +86,7 @@ export default function AboutCompany() {
 
           </div>
 
-          {/* Right Column: Visual Engineering Showcase Card */}
+          {/* Right Column: Visual Engineering Showcase Card with 1M+ KM Milestone */}
           <div style={{
             position: 'relative',
             borderRadius: 'var(--radius-lg)',
@@ -142,14 +142,36 @@ export default function AboutCompany() {
               <p style={{
                 fontSize: '0.98rem',
                 color: '#cbd5e1',
-                lineHeight: 1.7
+                lineHeight: 1.7,
+                marginBottom: '20px'
               }}>
                 Executing electrical power projects across all operating environments—from urban centers, 
                 industrial corridors, and commercial hubs to high-altitude and strategic frontier sectors 
-                including Jammu & Kashmir and Ladakh. Our engineering teams deploy robust, all-weather power 
-                equipment, precision-engineered transformers, and automated synchronizing generator systems 
-                designed for seamless, continuous 24/7 performance in every operational condition.
+                including Jammu & Kashmir and Ladakh.
               </p>
+
+              <div style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(229, 169, 16, 0.25)',
+                borderRadius: 'var(--radius-md)',
+                padding: '16px 20px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px'
+              }}>
+                <div style={{
+                  fontSize: '1.85rem',
+                  fontWeight: 800,
+                  color: 'var(--gold-primary)',
+                  lineHeight: 1,
+                  whiteSpace: 'nowrap'
+                }}>
+                  1M+ km
+                </div>
+                <div style={{ fontSize: '0.88rem', color: '#e2e8f0', lineHeight: 1.4 }}>
+                  High-tension cables, underground feeders, and overhead transmission lines laid and counting.
+                </div>
+              </div>
             </div>
 
           </div>

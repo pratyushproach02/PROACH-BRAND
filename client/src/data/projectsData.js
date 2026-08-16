@@ -11,8 +11,8 @@ export const caseStudies = [
     title: 'Northern Command Strategic Substation & Power Distribution',
     location: 'Udhampur Military Station, J&K',
     sector: 'Defense Infrastructure',
-    scope: '33/11kV Substation Erection, HT Switchgear, 2000kVA Transformers & AMF DG Backup',
-    summary: 'Turnkey engineering, supply, erection, testing, and commissioning of primary high-voltage power distribution for critical command facilities.',
+    scope: 'Substation Installation, HT Switchgear, 2000kVA Transformers & AMF DG Backup',
+    summary: 'Turnkey engineering, supply, installation, testing, and commissioning of primary high-voltage power distribution for critical command facilities.',
     highlight: 'Designed for uninterrupted failover with dual grid synchronizing and zero downtime tolerance.'
   },
   {
@@ -48,15 +48,15 @@ export const regionalPresence = [
   { city: 'Jammu Central', role: 'Headquarters & Regional Logistics Depot', coverage: 'Greater Jammu, Kathua, Samba Industrial Zone' },
   { city: 'Udhampur', role: 'Northern Command Defense Project Division', coverage: 'Command HQs, Air Force Stations, Rail Corridors' },
   { city: 'Kashmir Valley / Srinagar', role: 'High-Altitude Project & Rapid Response Base', coverage: 'Srinagar, Baramulla, Anantnag, Kupwara' },
-  { city: 'Strategic Hill Sectors', role: 'Turnkey Substation & Remote Line Erection', coverage: 'Leh, Durbuk, Tangste, Chenab Valley' }
+  { city: 'Strategic Hill Sectors', role: 'Turnkey Substation & Remote Line Installation', coverage: 'Leh, Durbuk, Tangste, Chenab Valley' }
 ];
 
 export const turnkeyServices = [
   {
     id: 'srv-01',
     icon: 'Zap',
-    title: 'Substation Erection & HT/LT Distribution',
-    description: 'Installation of 11kV, 33kV, and 66kV outdoor yards, distribution transformers, CT/PT metering units, lightning arresters, and overhead line stringing.'
+    title: 'Substation Installation & HT/LT Distribution',
+    description: 'Installation of 11kV, 500kV, and 630kV outdoor yards, distribution transformers, CT/PT metering units, lightning arresters, and overhead line stringing.'
   },
   {
     id: 'srv-02',

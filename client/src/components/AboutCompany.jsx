@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Zap, Award } from 'lucide-react';
 
 export default function AboutCompany() {
   return (
@@ -15,10 +15,6 @@ export default function AboutCompany() {
           
           {/* Left Column: Corporate Narrative */}
           <div>
-            <div className="eyebrow" style={{ color: 'var(--gold-dark)' }}>
-              Corporate Profile & Heritage
-            </div>
-
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
@@ -86,14 +82,14 @@ export default function AboutCompany() {
 
           </div>
 
-          {/* Right Column: Visual Engineering Showcase Card with 1M+ KM Milestone */}
+          {/* Right Column: Visual Engineering Showcase Card with High-Impact 1M+ KM Milestone */}
           <div style={{
             position: 'relative',
             borderRadius: 'var(--radius-lg)',
             overflow: 'hidden',
-            boxShadow: '0 20px 45px rgba(7, 17, 30, 0.12)',
+            boxShadow: '0 24px 50px rgba(7, 17, 30, 0.16)',
             border: '1.5px solid var(--border-light)',
-            background: 'linear-gradient(145deg, #0d1e33, #07111e)',
+            background: 'linear-gradient(150deg, #0e223a 0%, #07111e 100%)',
             padding: '44px 38px',
             color: '#ffffff',
             display: 'flex',
@@ -104,10 +100,10 @@ export default function AboutCompany() {
               position: 'absolute',
               top: '-30px',
               right: '-30px',
-              width: '160px',
-              height: '160px',
+              width: '180px',
+              height: '180px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(229, 169, 16, 0.25) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(229, 169, 16, 0.28) 0%, transparent 70%)',
               pointerEvents: 'none'
             }} />
 
@@ -123,7 +119,7 @@ export default function AboutCompany() {
                 color: 'var(--gold-primary)',
                 fontSize: '0.82rem',
                 fontWeight: 700,
-                marginBottom: '22px'
+                marginBottom: '20px'
               }}>
                 <ShieldCheck size={16} /> Decades of Proven Field Performance
               </div>
@@ -133,7 +129,7 @@ export default function AboutCompany() {
                 fontSize: '1.75rem',
                 fontWeight: 700,
                 lineHeight: 1.28,
-                marginBottom: '18px',
+                marginBottom: '16px',
                 color: '#ffffff'
               }}>
                 Comprehensive High-Voltage Infrastructure Across All Terrains & Climates
@@ -143,35 +139,109 @@ export default function AboutCompany() {
                 fontSize: '0.98rem',
                 color: '#cbd5e1',
                 lineHeight: 1.7,
-                marginBottom: '20px'
+                marginBottom: '24px'
               }}>
                 Executing electrical power projects across all operating environments—from urban centers, 
                 industrial corridors, and commercial hubs to high-altitude and strategic frontier sectors 
                 including Jammu & Kashmir and Ladakh.
               </p>
 
+              {/* Premium Customer-Facing Milestone Card */}
               <div style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(229, 169, 16, 0.25)',
+                background: 'linear-gradient(135deg, rgba(229, 169, 16, 0.14) 0%, rgba(15, 35, 60, 0.65) 100%)',
+                border: '1.5px solid rgba(229, 169, 16, 0.4)',
                 borderRadius: 'var(--radius-md)',
-                padding: '16px 20px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px'
+                padding: '24px 22px',
+                boxShadow: '0 12px 32px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12)',
+                position: 'relative',
+                overflow: 'hidden'
               }}>
+                {/* Subtle top badge */}
                 <div style={{
-                  fontSize: '1.85rem',
-                  fontWeight: 800,
-                  color: 'var(--gold-primary)',
-                  lineHeight: 1,
-                  whiteSpace: 'nowrap'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  marginBottom: '10px'
                 }}>
-                  1M+ km
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.74rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: '#f5c443'
+                  }}>
+                    <Zap size={14} style={{ color: '#f5c443' }} /> Verified Grid Milestone
+                  </span>
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    color: '#10b981',
+                    background: 'rgba(16, 185, 129, 0.15)',
+                    padding: '2px 8px',
+                    borderRadius: '9999px',
+                    border: '1px solid rgba(16, 185, 129, 0.3)'
+                  }}>
+                    <span style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: '#10b981',
+                      boxShadow: '0 0 8px #10b981'
+                    }}></span>
+                    Active & Expanding
+                  </span>
                 </div>
-                <div style={{ fontSize: '0.88rem', color: '#e2e8f0', lineHeight: 1.4 }}>
-                  High-tension cables, underground feeders, and overhead transmission lines laid and counting.
+
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '2.5rem',
+                    fontWeight: 800,
+                    lineHeight: 1,
+                    letterSpacing: '-0.02em',
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f5c443 60%, #e5a910 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    display: 'inline-block'
+                  }}>
+                    1,000,000+
+                  </div>
+                  <div style={{
+                    fontSize: '1.25rem',
+                    fontWeight: 800,
+                    color: '#f5c443',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.04em'
+                  }}>
+                    Kilometers
+                  </div>
                 </div>
+
+                <div style={{
+                  fontSize: '0.98rem',
+                  fontWeight: 700,
+                  color: '#ffffff',
+                  marginBottom: '6px'
+                }}>
+                  High-Tension Cables & Overhead Transmission Lines Laid
+                </div>
+
+                <p style={{
+                  fontSize: '0.86rem',
+                  color: '#cbd5e1',
+                  lineHeight: 1.5,
+                  margin: 0
+                }}>
+                  Successfully energized and sustained across rugged mountain passes, military cantonments, and key industrial belts.
+                </p>
               </div>
+
             </div>
 
           </div>

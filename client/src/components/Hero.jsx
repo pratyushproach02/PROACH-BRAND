@@ -133,10 +133,6 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
             >
               Browse Equipment Catalog <ArrowRight size={18} />
             </button>
-            <button onClick={onOpenRFQ} className="btn btn-outline-light">
-              <Zap size={18} style={{ color: 'var(--gold-primary)' }} />
-              Request Institutional RFQ
-            </button>
             <button 
               onClick={() => {
                 onNavigate('contact');

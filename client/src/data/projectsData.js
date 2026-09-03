@@ -18,12 +18,13 @@ export const caseStudies = [
   },
   {
     id: 'cs-02',
-    title: 'High-Altitude Cantonment Electrification & Underground Cabling',
-    location: 'Srinagar & Kashmir Valley Strategic Bases',
-    sector: 'High Altitude Defense',
-    scope: '11kV XLPE Armored Trench Cabling, Compact Substations & Sub-Zero DG Units',
-    summary: 'Execution of winter-grade resilient electrical power networks capable of operating through extreme snowpack and sub-zero temperatures down to -25°C.',
-    highlight: 'Completed in harsh mountainous terrain under stringent defense security protocols.'
+    title: 'Bhaderwah Mountain Grid Electrification & Advanced Switchgear',
+    location: 'Bhaderwah Valley, Jammu & Kashmir',
+    sector: 'Mountain Electrification & Power Grid',
+    image: '/images/projects/bhaderwah_substation.jpg',
+    scope: 'Outdoor Distribution Kiosks, ABB Control Switchgear, Underground Trench Cabling & High-Altitude Transmission Integration',
+    summary: 'Successfully executed high-altitude valley electrification and outdoor switchboard installation in Bhaderwah, establishing resilient power distribution across mountainous terrain with ongoing and upcoming grid expansion projects to further strengthen regional capacity.',
+    highlight: 'Field-proven mountain terrain reliability with ongoing modern grid integration phases.'
   },
   {
     id: 'cs-03',
@@ -49,7 +50,7 @@ export const regionalPresence = [
   { city: 'Jammu Central', role: 'Headquarters & Regional Logistics Depot', coverage: 'Greater Jammu, Kathua, Samba Industrial Zone' },
   { city: 'Udhampur', role: 'Northern Command Defense Project Division', coverage: 'Command HQs, Air Force Stations, Rail Corridors' },
   { city: 'Kashmir Valley / Srinagar', role: 'High-Altitude Project & Rapid Response Base', coverage: 'Srinagar, Baramulla, Anantnag, Kupwara' },
-  { city: 'Strategic Hill Sectors', role: 'Turnkey Substation & Remote Line Installation', coverage: 'Leh, Durbuk, Tangste, Chenab Valley' }
+  { city: 'Strategic Hill Sectors', role: 'Turnkey Substation & Remote Line Installation', coverage: 'Leh, Lamayuru, Tangste, Chenab Valley' }
 ];
 
 export const turnkeyServices = [

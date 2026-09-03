@@ -116,7 +116,7 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
             Founded in 1989, <strong style={{ color: '#ffffff' }}>Proach Associates Builders & Engineers</strong> is a leading 
             integrated electrical engineering, equipment supply, and turnkey EPC contractor. With over three decades of proven 
             execution, our portfolio encompasses <strong style={{ color: '#ffffff' }}>Air Force stations, high-voltage substations, military cantonments, radar installations, and strategic transmission grids</strong> across 
-            <strong style={{ color: 'var(--gold-primary)' }}> Jammu & Kashmir, Leh, Durbuk, Tangste,</strong> and vital frontier sectors.
+            <strong style={{ color: 'var(--gold-primary)' }}> Jammu & Kashmir, Leh, Lamayuru, Tangste,</strong> and vital frontier sectors.
           </p>
 
           {/* CTA Buttons with Conversion Shimmer Effect */}

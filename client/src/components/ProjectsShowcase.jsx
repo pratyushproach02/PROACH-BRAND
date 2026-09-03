@@ -1,6 +1,6 @@
 import React from 'react';
 import { caseStudies } from '../data/projectsData';
-import { MapPin, CheckCircle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { MapPin, CheckCircle, ArrowRight } from 'lucide-react';
 
 export default function ProjectsShowcase({ onNavigate }) {
   return (
@@ -66,14 +66,15 @@ export default function ProjectsShowcase({ onNavigate }) {
                 e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.2)';
               }}
             >
-              {/* Optional On-Site Project Photo */}
+              {/* Clean On-Site Project Photo */}
               {project.image && (
                 <div style={{
                   position: 'relative',
                   width: '100%',
-                  height: '230px',
+                  height: '235px',
                   overflow: 'hidden',
-                  background: '#07111e'
+                  background: '#07111e',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
                 }}>
                   <img
                     src={project.image}
@@ -88,31 +89,6 @@ export default function ProjectsShowcase({ onNavigate }) {
                     onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.04)'}
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                   />
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(to top, rgba(16, 34, 56, 0.95) 0%, rgba(16, 34, 56, 0.2) 60%, transparent 100%)'
-                  }} />
-                  <div style={{
-                    position: 'absolute',
-                    top: '16px',
-                    left: '16px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '5px 12px',
-                    borderRadius: 'var(--radius-full)',
-                    background: 'rgba(7, 17, 30, 0.85)',
-                    border: '1px solid var(--gold-primary)',
-                    color: 'var(--gold-primary)',
-                    fontSize: '0.75rem',
-                    fontWeight: 800,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    backdropFilter: 'blur(6px)'
-                  }}>
-                    <ShieldCheck size={14} /> Actual Field Installation
-                  </div>
                 </div>
               )}
 

@@ -42,7 +42,7 @@ export default function AboutCompany() {
               color: '#334155',
               marginBottom: '28px'
             }}>
-              Founded in <strong>1989</strong>, our company has grown into a cornerstone engineering partner in Northern India and strategic frontier sectors. Under visionary technical leadership, we have evolved from executing foundational power distribution networks to delivering turnkey 33kV/11kV substations, high-altitude resilient micro-grids in <strong>Leh, Durbuk, and Tangste</strong>, and large-scale industrial electrification. Over the decades, we have forged enduring partnerships with prestigious agencies including the <strong>Military Engineer Services (MES), Northern Command, CPWD, and State Power Corporations</strong>, consistently delivering exceptional quality that meets both client expectations and rigorous industry standards.
+              Founded in <strong>1989</strong>, our company has grown into a cornerstone engineering partner in Northern India and strategic frontier sectors. Under visionary technical leadership, we have evolved from executing foundational power distribution networks to delivering turnkey 33kV/11kV substations, high-altitude resilient micro-grids in <strong>Leh, Lamayuru, and Tangste</strong>, and large-scale industrial electrification. Over the decades, we have forged enduring partnerships with prestigious agencies including the <strong>Military Engineer Services (MES), Northern Command, CPWD, and State Power Corporations</strong>, consistently delivering exceptional quality that meets both client expectations and rigorous industry standards.
             </p>
 
             <div style={{

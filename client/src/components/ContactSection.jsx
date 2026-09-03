@@ -61,7 +61,7 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
         agreed: false
       });
     } catch (err) {
-      setErrorMsg('Failed to send enquiry. Please call our direct hotline at +91-97976-81768.');
+      setErrorMsg('Failed to send enquiry. Please call our direct hotline at +91-94192-32863.');
     } finally {
       setLoading(false);
     }
@@ -149,8 +149,8 @@ export default function ContactSection({ onOpenRFQ, onNavigateHome }) {
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-light-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     DIRECT CALLING / WHATSAPP
                   </div>
-                  <a href="tel:+919797681768" style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--gold-primary)' }}>
-                    +91-97976-81768
+                  <a href="tel:+919419232863" style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--gold-primary)' }}>
+                    +91-94192-32863
                   </a>
                 </div>
               </div>

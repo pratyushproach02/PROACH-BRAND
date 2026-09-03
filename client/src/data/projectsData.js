@@ -8,12 +8,13 @@ export const stats = [
 export const caseStudies = [
   {
     id: 'cs-01',
-    title: 'Northern Command Strategic Substation & Power Distribution',
-    location: 'Udhampur Military Station, J&K',
-    sector: 'Defense Infrastructure',
-    scope: 'Substation Installation, HT Switchgear, 2000kVA Transformers & AMF DG Backup',
-    summary: 'Turnkey engineering, supply, installation, testing, and commissioning of primary high-voltage power distribution for critical command facilities.',
-    highlight: 'Designed for uninterrupted failover with dual grid synchronizing and zero downtime tolerance.'
+    title: 'Tangste 11kV Transmission Line & Substation Installation',
+    location: 'Tangste, Ladakh / Strategic Northern Frontier',
+    sector: 'Indian Army & Defense Infrastructure',
+    image: '/images/projects/tangste_substation.jpg',
+    scope: 'Tangste 11kV Line, Heavy Transformers (630kV, 400kV), Switchgear & High-Altitude Army Power Distribution',
+    summary: 'Turnkey high-voltage engineering, specialized mountain transmission line stringing, and heavy transformer commissioning executed for the Indian Army under extreme high-altitude and sub-zero conditions.',
+    highlight: 'Mission-critical defense reliability — field-proven equipment performance and execution trusted by the Indian Army.'
   },
   {
     id: 'cs-02',

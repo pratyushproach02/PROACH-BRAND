@@ -150,7 +150,7 @@ export default function RFQModal({ isOpen, onClose, items, onRemoveItem, onClear
                 fontSize: '0.88rem',
                 marginBottom: '24px'
               }}>
-                <div><strong>Direct Inquiries Desk:</strong> +91-97976-81768</div>
+                <div><strong>Direct Inquiries Desk:</strong> +91-94192-32863</div>
                 <div><strong>Email:</strong> dkumar2711@rediffmail.com</div>
               </div>
               <div>

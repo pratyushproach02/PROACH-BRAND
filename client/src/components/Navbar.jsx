@@ -235,7 +235,7 @@ export default function Navbar({ currentView, onNavigate, rfqCount, onOpenRFQ })
 
           {/* Hotline Button */}
           <a
-            href="tel:+919797681768"
+            href="tel:+919419232863"
             style={{
               display: 'none',
               alignItems: 'center',
@@ -260,7 +260,7 @@ export default function Navbar({ currentView, onNavigate, rfqCount, onOpenRFQ })
               e.currentTarget.style.background = '#f8fafc';
             }}
           >
-            <Phone size={15} style={{ color: '#b88307' }} /> +91-97976-81768
+            <Phone size={15} style={{ color: '#b88307' }} /> +91-94192-32863
           </a>
 
           {/* Mobile Menu Toggle */}

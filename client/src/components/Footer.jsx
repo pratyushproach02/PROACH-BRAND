@@ -60,7 +60,7 @@ export default function Footer({ onNavigate }) {
               lineHeight: 1.7,
               color: '#cbd5e1'
             }}>
-              Proach Associates Builders & Engineers delivers high-performance, resilient electrical infrastructure and turnkey engineering solutions across critical frontiers. Leveraging decades of operational excellence, we engineer mission-critical power networks, high-voltage substations, and industrial distribution grids built for unyielding reliability under the most demanding geopolitical and environmental conditions.
+              Proach Associates Builders & Engineers delivers premier electrical infrastructure, turnkey power engineering, and heavy equipment distribution built for unyielding reliability across mission-critical frontiers.
             </p>
           </div>
 
@@ -130,8 +130,8 @@ export default function Footer({ onNavigate }) {
                 <Phone size={18} style={{ color: 'var(--gold-primary)', flexShrink: 0 }} />
                 <div>
                   <span style={{ color: '#94a3b8', fontSize: '0.8rem', display: 'block' }}>Contact No.:</span>
-                  <a href="tel:+919797681768" style={{ color: '#ffffff', fontWeight: 700 }}>
-                    +91-97976-81768
+                  <a href="tel:+919419232863" style={{ color: '#ffffff', fontWeight: 700 }}>
+                    +91-94192-32863
                   </a>
                 </div>
               </div>

@@ -70,7 +70,7 @@ export default function App() {
             />
             <AboutCompany onNavigate={handleNavigate} />
             <SolutionsSection />
-            <ProjectsShowcase />
+            <ProjectsShowcase onNavigate={handleNavigate} />
           </div>
         )}
 

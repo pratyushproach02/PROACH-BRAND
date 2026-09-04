@@ -18,10 +18,6 @@ export default function ProductModal({ product, onClose, onAddToRFQ, inRFQ }) {
           gap: '16px'
         }}>
           <div>
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
-              <span className="badge badge-gold">{product.tag}</span>
-              <span className="badge badge-defense">{product.badge}</span>
-            </div>
             <h3 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: '1.45rem',
@@ -56,6 +52,23 @@ export default function ProductModal({ product, onClose, onAddToRFQ, inRFQ }) {
         {/* Body Content */}
         <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           
+          {/* Equipment Image */}
+          {product.image && (
+            <div style={{
+              borderRadius: 'var(--radius-md)',
+              overflow: 'hidden',
+              border: '1px solid var(--border-light)',
+              background: '#07111e',
+              height: '240px'
+            }}>
+              <img
+                src={product.image}
+                alt={product.name}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+          )}
+
           {/* Overview */}
           <div>
             <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '8px' }}>Equipment Overview</h4>
@@ -63,55 +76,6 @@ export default function ProductModal({ product, onClose, onAddToRFQ, inRFQ }) {
               {product.description}
             </p>
           </div>
-
-          {/* Authentic Material & Field Inspection Photographs */}
-          {(product.image || product.detailImage) && (
-            <div>
-              <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '12px' }}>
-                Authentic Material & Field Inspection
-              </h4>
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: product.detailImage ? 'repeat(auto-fit, minmax(240px, 1fr))' : '1fr',
-                gap: '14px'
-              }}>
-                {product.image && (
-                  <div style={{
-                    borderRadius: 'var(--radius-md)',
-                    overflow: 'hidden',
-                    border: '1px solid var(--border-light)',
-                    background: '#f8fafc'
-                  }}>
-                    <img
-                      src={product.image}
-                      alt={`${product.name} Reel`}
-                      style={{ width: '100%', height: '190px', objectFit: 'cover', display: 'block' }}
-                    />
-                    <div style={{ padding: '8px 12px', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-dark)', background: '#ffffff', borderTop: '1px solid var(--border-light)' }}>
-                      Heavy-Duty Cable Coils & Bundles
-                    </div>
-                  </div>
-                )}
-                {product.detailImage && (
-                  <div style={{
-                    borderRadius: 'var(--radius-md)',
-                    overflow: 'hidden',
-                    border: '1px solid var(--border-light)',
-                    background: '#f8fafc'
-                  }}>
-                    <img
-                      src={product.detailImage}
-                      alt={`${product.name} Embossed Marking`}
-                      style={{ width: '100%', height: '190px', objectFit: 'cover', display: 'block' }}
-                    />
-                    <div style={{ padding: '8px 12px', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-dark)', background: '#ffffff', borderTop: '1px solid var(--border-light)' }}>
-                      Embossed IS 7098 (Part - II) & ISI Certification Mark
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
 
           {/* Technical Specifications Table */}
           <div>

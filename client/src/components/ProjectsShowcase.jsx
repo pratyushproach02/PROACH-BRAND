@@ -161,22 +161,26 @@ export default function ProjectsShowcase({ onNavigate }) {
                 </div>
 
                 {onNavigate && (
-                  <div style={{ display: 'flex', gap: '10px', marginTop: '6px' }}>
+                  <div style={{ marginTop: '6px' }}>
                     <button
                       onClick={() => {
                         onNavigate('products');
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       style={{
-                        flex: 1,
-                        padding: '8px 12px',
-                        background: 'rgba(255, 255, 255, 0.06)',
+                        width: '100%',
+                        padding: '10px 14px',
+                        background: 'rgba(255, 255, 255, 0.05)',
                         border: '1px solid rgba(255, 255, 255, 0.16)',
                         borderRadius: 'var(--radius-sm)',
                         color: '#ffffff',
-                        fontSize: '0.82rem',
+                        fontSize: '0.84rem',
                         fontWeight: 700,
                         cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '6px',
                         transition: 'all 0.2s ease'
                       }}
                       onMouseEnter={(e) => {
@@ -185,32 +189,12 @@ export default function ProjectsShowcase({ onNavigate }) {
                         e.currentTarget.style.color = 'var(--gold-primary)';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
+                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
                         e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
                         e.currentTarget.style.color = '#ffffff';
                       }}
                     >
-                      View Equipment
-                    </button>
-                    <button
-                      onClick={() => {
-                        onNavigate('contact');
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                      style={{
-                        flex: 1,
-                        padding: '8px 12px',
-                        background: 'linear-gradient(135deg, var(--gold-primary), var(--gold-dark))',
-                        border: 'none',
-                        borderRadius: 'var(--radius-sm)',
-                        color: 'var(--primary-navy)',
-                        fontSize: '0.82rem',
-                        fontWeight: 800,
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
-                      Consult on Scope →
+                      View Related Equipment <ArrowRight size={14} />
                     </button>
                   </div>
                 )}

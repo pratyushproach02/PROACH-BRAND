@@ -195,6 +195,36 @@ export default function ProductCatalog({ onSelectProduct, onAddToRFQ, rfqItems, 
                       </span>
                     </div>
 
+                    {/* Product Image Thumbnail if Available */}
+                    {item.image && (
+                      <div 
+                        onClick={() => onSelectProduct(item)}
+                        style={{
+                          borderRadius: 'var(--radius-md)',
+                          overflow: 'hidden',
+                          height: '175px',
+                          marginBottom: '16px',
+                          border: '1px solid var(--border-light)',
+                          background: '#07111e',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            display: 'block',
+                            transition: 'transform 0.3s ease'
+                          }}
+                          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.04)'}
+                          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                        />
+                      </div>
+                    )}
+
                     {/* Product Name */}
                     <h3 style={{
                       fontFamily: 'var(--font-heading)',

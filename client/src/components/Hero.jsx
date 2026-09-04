@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Award, Zap, Activity } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Award, Activity } from 'lucide-react';
 
 export default function Hero({ onOpenRFQ, onNavigate }) {
   return (
@@ -80,7 +80,7 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
               fontWeight: 400
             }}
           >
-            Founded in 1989, <strong style={{ color: '#ffffff' }}>Proach Associates Builders & Engineers</strong> is a leading integrated electrical engineering, equipment supply, and turnkey EPC contractor. With over three decades of proven execution, our portfolio encompasses <strong style={{ color: '#ffffff' }}>Air Force stations, high-voltage substations, military cantonments, radar installations, and strategic transmission grids</strong> across <strong style={{ color: 'var(--gold-primary)' }}>Jammu & Kashmir, Leh, Lamayuru, Tangste,</strong> and vital frontier sectors.
+            Founded in 1989, <strong style={{ color: '#ffffff' }}>Proach Associates Builders & Engineers</strong> is a leading integrated electrical engineering, equipment supply, and turnkey EPC contractor. With over three decades of proven execution, our portfolio encompasses <strong style={{ color: '#ffffff' }}>Air Force stations, high-voltage substations, military cantonments, and strategic transmission grids</strong> across <strong style={{ color: 'var(--gold-primary)' }}>Jammu & Kashmir, Leh, Lamayuru, Tangste,</strong> and vital frontier sectors.
           </p>
 
           {/* Action Buttons */}
@@ -125,8 +125,8 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '20px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '24px',
             alignItems: 'center'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -164,25 +164,6 @@ export default function Hero({ onOpenRFQ, onNavigate }) {
               <div>
                 <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.1 }}>Class MES</div>
                 <div style={{ fontSize: '0.78rem', color: 'var(--text-light-muted)' }}>Defense Certified Contractor</div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '10px',
-                background: 'rgba(229, 169, 16, 0.15)',
-                color: 'var(--gold-primary)',
-                display: 'grid',
-                placeItems: 'center',
-                flexShrink: 0
-              }}>
-                <Zap size={20} />
-              </div>
-              <div>
-                <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.1 }}>250+</div>
-                <div style={{ fontSize: '0.78rem', color: 'var(--text-light-muted)' }}>Sub-stations Executed</div>
               </div>
             </div>
 

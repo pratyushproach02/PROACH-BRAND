@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Zap, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Zap } from 'lucide-react';
 
 export default function AboutCompany({ onNavigate }) {
   return (
@@ -15,24 +15,6 @@ export default function AboutCompany({ onNavigate }) {
           
           {/* Left Column: Executive Corporate Narrative */}
           <div>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 12px',
-              borderRadius: 'var(--radius-full)',
-              background: 'rgba(229, 169, 16, 0.1)',
-              border: '1px solid rgba(229, 169, 16, 0.3)',
-              color: 'var(--gold-dark)',
-              fontSize: '0.8rem',
-              fontWeight: 800,
-              letterSpacing: '0.05em',
-              textTransform: 'uppercase',
-              marginBottom: '16px'
-            }}>
-              <ShieldCheck size={14} /> Corporate Heritage & EPC Mastery
-            </div>
-
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
@@ -57,53 +39,10 @@ export default function AboutCompany({ onNavigate }) {
             <p style={{
               fontSize: '1.02rem',
               lineHeight: 1.7,
-              color: '#334155',
-              marginBottom: '26px'
+              color: '#334155'
             }}>
               Over three decades, we have engineered and commissioned turnkey 33kV/11kV substations, heavy transformer yards, underground armored networks, and resilient micro-grids across <strong>Leh, Lamayuru, Tangste</strong>, and strategic Himalayan sectors. Our certified teams work in close coordination with prestigious agencies including the <strong>Military Engineer Services (MES), Northern Command, CPWD, and State Power Corporations</strong> to deliver uncompromised grid reliability.
             </p>
-
-            {/* Authoritative Client Approval Tags */}
-            <div style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '10px',
-              marginBottom: '28px'
-            }}>
-              {['Class MES Approved', 'Northern Command Defense', 'CPWD Compliant', 'State Power Discoms'].map((tag, idx) => (
-                <span
-                  key={idx}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '6px 14px',
-                    borderRadius: 'var(--radius-sm)',
-                    background: '#f8fafc',
-                    border: '1px solid var(--border-light)',
-                    fontSize: '0.82rem',
-                    fontWeight: 700,
-                    color: 'var(--primary-navy)'
-                  }}
-                >
-                  <CheckCircle2 size={14} style={{ color: 'var(--gold-dark)' }} /> {tag}
-                </span>
-              ))}
-            </div>
-
-            {onNavigate && (
-              <button
-                onClick={() => {
-                  onNavigate('contact');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="btn btn-outline-dark"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-              >
-                Request Corporate Profile & Credentials <ArrowRight size={16} />
-              </button>
-            )}
-
           </div>
 
           {/* Right Column: Visual Engineering Showcase Card with High-Impact 1M+ KM Milestone */}

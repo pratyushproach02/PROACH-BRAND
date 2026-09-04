@@ -1,7 +1,7 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2, Zap, Award } from 'lucide-react';
+import { ShieldCheck, Zap, ArrowRight, CheckCircle2 } from 'lucide-react';
 
-export default function AboutCompany() {
+export default function AboutCompany({ onNavigate }) {
   return (
     <section id="about-company" style={{ padding: '95px 0', background: '#ffffff' }}>
       <div className="container">
@@ -13,8 +13,26 @@ export default function AboutCompany() {
           alignItems: 'center'
         }}>
           
-          {/* Left Column: Corporate Narrative */}
+          {/* Left Column: Executive Corporate Narrative */}
           <div>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '4px 12px',
+              borderRadius: 'var(--radius-full)',
+              background: 'rgba(229, 169, 16, 0.1)',
+              border: '1px solid rgba(229, 169, 16, 0.3)',
+              color: 'var(--gold-dark)',
+              fontSize: '0.8rem',
+              fontWeight: 800,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              marginBottom: '16px'
+            }}>
+              <ShieldCheck size={14} /> Corporate Heritage & EPC Mastery
+            </div>
+
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
@@ -22,7 +40,7 @@ export default function AboutCompany() {
               lineHeight: 1.15,
               letterSpacing: '-0.025em',
               color: 'var(--primary-navy)',
-              marginBottom: '24px'
+              marginBottom: '22px'
             }}>
               Building Critical Power Infrastructure with Solid Foundations
             </h2>
@@ -31,54 +49,60 @@ export default function AboutCompany() {
               fontSize: '1.02rem',
               lineHeight: 1.7,
               color: '#334155',
-              marginBottom: '20px'
+              marginBottom: '18px'
             }}>
-              We are a premier integrated Engineering, Procurement, and Construction (EPC) firm and heavy equipment distributor with extensive experience in executing high-stakes electrical and power infrastructure projects. Our proven portfolio includes <strong>Air Force stations, high-voltage substations, military cantonments, and radar & defense communication grids</strong>, demonstrating our comprehensive engineering capabilities across diverse operational environments.
+              Founded in <strong>1989</strong>, <strong>Proach Associates Builders & Engineers</strong> has grown into an established Engineering, Procurement, and Construction (EPC) leader and heavy electrical equipment distributor in Northern India. 
             </p>
 
             <p style={{
               fontSize: '1.02rem',
               lineHeight: 1.7,
               color: '#334155',
-              marginBottom: '28px'
+              marginBottom: '26px'
             }}>
-              Founded in <strong>1989</strong>, our company has grown into a cornerstone engineering partner in Northern India and strategic frontier sectors. Under visionary technical leadership, we have evolved from executing foundational power distribution networks to delivering turnkey 33kV/11kV substations, high-altitude resilient micro-grids in <strong>Leh, Lamayuru, and Tangste</strong>, and large-scale industrial electrification. Over the decades, we have forged enduring partnerships with prestigious agencies including the <strong>Military Engineer Services (MES), Northern Command, CPWD, and State Power Corporations</strong>, consistently delivering exceptional quality that meets both client expectations and rigorous industry standards.
+              Over three decades, we have engineered and commissioned turnkey 33kV/11kV substations, heavy transformer yards, underground armored networks, and resilient micro-grids across <strong>Leh, Lamayuru, Tangste</strong>, and strategic Himalayan sectors. Our certified teams work in close coordination with prestigious agencies including the <strong>Military Engineer Services (MES), Northern Command, CPWD, and State Power Corporations</strong> to deliver uncompromised grid reliability.
             </p>
 
+            {/* Authoritative Client Approval Tags */}
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: '16px',
-              padding: '20px',
-              background: 'var(--surface-light)',
-              borderRadius: 'var(--radius-md)',
-              border: '1px solid var(--border-light)'
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '10px',
+              marginBottom: '28px'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <CheckCircle2 size={18} style={{ color: '#b88307', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary-navy)' }}>
-                  Founded in 1989
+              {['Class MES Approved', 'Northern Command Defense', 'CPWD Compliant', 'State Power Discoms'].map((tag, idx) => (
+                <span
+                  key={idx}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '6px 14px',
+                    borderRadius: 'var(--radius-sm)',
+                    background: '#f8fafc',
+                    border: '1px solid var(--border-light)',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    color: 'var(--primary-navy)'
+                  }}
+                >
+                  <CheckCircle2 size={14} style={{ color: 'var(--gold-dark)' }} /> {tag}
                 </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <CheckCircle2 size={18} style={{ color: '#b88307', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary-navy)' }}>
-                  Class MES Contractor
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <CheckCircle2 size={18} style={{ color: '#b88307', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary-navy)' }}>
-                  Comprehensive Turnkey EPC
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <CheckCircle2 size={18} style={{ color: '#b88307', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary-navy)' }}>
-                  Global Standard Quality
-                </span>
-              </div>
+              ))}
             </div>
+
+            {onNavigate && (
+              <button
+                onClick={() => {
+                  onNavigate('contact');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="btn btn-outline-dark"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                Request Corporate Profile & Credentials <ArrowRight size={16} />
+              </button>
+            )}
 
           </div>
 
